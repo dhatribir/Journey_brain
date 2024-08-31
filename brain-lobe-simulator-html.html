@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brain Lobe Simulator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .container {
+            text-align: center;
+        }
+        .brain {
+            width: 300px;
+            height: 300px;
+            margin: 20px auto;
+            position: relative;
+        }
+        .lobe {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            cursor: pointer;
+            transition: opacity 0.3s;
+        }
+        .lobe:hover {
+            opacity: 0.8;
+        }
+        #frontal { top: 0; left: 75px; background-color: #ff6b6b; clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); }
+        #parietal { top: 0; left: 0; background-color: #4ecdc4; clip-path: polygon(100% 50%, 50% 100%, 0% 50%, 50% 0%); }
+        #temporal { bottom: 0; left: 0; background-color: #45b7d1; clip-path: polygon(100% 0%, 50% 50%, 100% 100%, 0% 100%, 0% 0%); }
+        #occipital { bottom: 0; right: 0; background-color: #feca57; clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 50% 50%, 0% 100%); }
+        #info {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Brain Lobe Simulator</h1>
+        <div class="brain">
+            <div class="lobe" id="frontal" onclick="showInfo('frontal')"></div>
+            <div class="lobe" id="parietal" onclick="showInfo('parietal')"></div>
+            <div class="lobe" id="temporal" onclick="showInfo('temporal')"></div>
+            <div class="lobe" id="occipital" onclick="showInfo('occipital')"></div>
+        </div>
+        <div id="info">Click on a brain lobe to see its functions</div>
+    </div>
+
+    <script>
+        const lobes = {
+            frontal: {
+                name: "Frontal Lobe",
+                functions: ["Executive functions", "Motor control", "Language production"]
+            },
+            parietal: {
+                name: "Parietal Lobe",
+                functions: ["Sensory processing", "Spatial awareness", "Navigation"]
+            },
+            temporal: {
+                name: "Temporal Lobe",
+                functions: ["Auditory processing", "Memory formation", "Language comprehension"]
+            },
+            occipital: {
+                name: "Occipital Lobe",
+                functions: ["Visual processing", "Color recognition", "Object recognition"]
+            }
+        };
+
+        function showInfo(lobeName) {
+            const lobe = lobes[lobeName];
+            const infoDiv = document.getElementById('info');
+            infoDiv.innerHTML = `
+                <h2>${lobe.name}</h2>
+                <ul>
+                    ${lobe.functions.map(func => `<li>${func}</li>`).join('')}
+                </ul>
+            `;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fascinating Brain Facts</title>
+    <link href="https://fonts.googleapis.com/css2?family=Aladin&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Aladin', cursive;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(-45deg, #0099ff, #00ff87, #0099ff, #00ff87);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            font-size: 3em;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            background: linear-gradient(to right, #3a7bd5, #8E54E9);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        h2 {
+            color: #3a7bd5;
+            border-bottom: 2px solid #8E54E9;
+            padding-bottom: 10px;
+            font-size: 2em;
+        }
+        .fact-container {
+            display: flex;
+            flex-direction: column;
+        }
+        .fact {
+            background-color: #fff;
+            border-left: 5px solid #8E54E9;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            font-size: 1.2em;
+        }
+        .fact:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+        .fact::before {
+            content: "🧠";
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            font-size: 40px;
+            opacity: 0.1;
+            transform: rotate(15deg);
+        }
+        .hidden {
+            display: none;
+        }
+        button {
+            background-color: #3a7bd5;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1.2em;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            font-family: 'Aladin', cursive;
+        }
+        button:hover {
+            background-color: #8E54E9;
+            transform: scale(1.05);
+        }
+        #quiz {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-top: 30px;
+        }
+        #result {
+            font-weight: bold;
+            margin-top: 10px;
+            text-align: center;
+            font-size: 1.2em;
+        }
+        #trivia {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <h1>Fascinating Brain Facts</h1>
+    
+    <h2>Did you know?</h2>
+    
+    <div class="fact-container">
+        <div class="fact">
+            <p>The human brain weighs about 3 pounds (1.36 kg) and contains approximately 86 billion neurons.</p>
+        </div>
+        
+        <div class="fact">
+            <p>Your brain uses about 20% of the total oxygen in your body.</p>
+        </div>
+        
+        <div class="fact">
+            <p>The human brain can generate about 70,000 thoughts per day.</p>
+        </div>
+        
+        <div class="fact">
+            <p>Information in your brain travels at an average speed of 268 mph (431 km/h).</p>
+        </div>
+        
+        <div class="fact">
+            <p>The human brain continues to produce new neurons throughout life in a process called neurogenesis.</p>
+        </div>
+        
+        <div class="fact">
+            <p>The brain can't multitask effectively. It switches between tasks, which can reduce productivity.</p>
+        </div>
+        
+        <div class="fact">
+            <p>The brain's storage capacity is considered virtually unlimited.</p>
+        </div>
+        
+        <div class="fact">
+            <p>The human brain is more active during sleep than during the day.</p>
+        </div>
+    </div>
+    
+    <h2>Brain Trivia</h2>
+    
+    <div id="trivia">
+        <ul>
+            <li>The brain feels no pain. It lacks pain receptors.</li>
+            <li class="hidden">The human brain is capable of surviving for 5 to 6 minutes without oxygen.</li>
+            <li class="hidden">The brain consumes about 20% of the body's total energy.</li>
+            <li class="hidden">The brain is 73% water. It takes only 2% dehydration to affect your attention, memory, and other cognitive skills.</li>
+            <li class="hidden">Your brain uses 20% of the blood flowing through your body.</li>
+            <li class="hidden">Brain information travels up to an impressive 268 mph!</li>
+        </ul>
+        
+        <button id="showMore">Show More Trivia</button>
+    </div>
+    
+    <div id="quiz">
+        <h2>Brain Quiz</h2>
+        <p>What percentage of the body's total energy does the brain consume?</p>
+        <button onclick="checkAnswer(20)">20%</button>
+        <button onclick="checkAnswer(10)">10%</button>
+        <button onclick="checkAnswer(5)">5%</button>
+        <p id="result"></p>
+    </div>
+    
+    <p>Remember, the brain is an incredibly complex organ, and scientists are continually discovering new facts about its capabilities and functions!</p>
+
+    <script>
+        const showMoreBtn = document.getElementById('showMore');
+        const triviaItems = document.querySelectorAll('#trivia li');
+        let isExpanded = false;
+
+        showMoreBtn.addEventListener('click', () => {
+            triviaItems.forEach(item => item.classList.toggle('hidden'));
+            isExpanded = !isExpanded;
+            showMoreBtn.textContent = isExpanded ? 'Show Less Trivia' : 'Show More Trivia';
+        });
+
+        function checkAnswer(answer) {
+            const result = document.getElementById('result');
+            if (answer === 20) {
+                result.textContent = 'Correct! The brain consumes about 20% of the body\'s total energy.';
+                result.style.color = 'green';
+            } else {
+                result.textContent = 'Sorry, that\'s incorrect. Try again!';
+                result.style.color = 'red';
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Journey Into The Brain</title>
+    <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+        .image-container {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .brain-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: transform 1s ease-in-out;
+        }
+        .title {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-family: 'Staatliches', cursive;
+            font-size: 5vw;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            z-index: 10;
+        }
+        .button-container {
+            position: absolute;
+            bottom: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+        }
+        .button {
+            padding: 20px 40px;
+            font-size: 2em;
+            font-family: 'Staatliches', cursive;
+            background-color: rgba(255, 255, 255, 0.8);
+            color: #333;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .button:hover {
+            background-color: rgba(255, 255, 255, 1);
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="image-container">
+        <img src="https://images.unsplash.com/photo-1617791160536-598cf32026fb?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YnJhaW58ZW58MHx8MHx8fDA%3D" alt="Stylized brain on gradient background" class="brain-image">
+        <div class="title">Journey Into The Brain</div>
+        <div class="button-container">
+            <a href="#" class="button" id="dive-button">Let's Dive In</a>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('dive-button').addEventListener('click', function(e) {
+            e.preventDefault();
+            var brainImage = document.querySelector('.brain-image');
+            brainImage.style.transform = 'scale(3.0)';
+            setTimeout(function() {
+                window.location.href = 'file:///Users/dhatrisribiruduraju/Downloads/Redirected%20Page.html#about';
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

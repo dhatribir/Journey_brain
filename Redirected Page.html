@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Menu</title>
+    <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+        .bg {
+            background-image: url('https://scitechdaily.com/images/Human-Brain-Memories-Neurons.jpg');
+            height: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            transition: transform 1s ease-in-out;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 15px 0;
+            text-align: center;
+            white-space: nowrap;
+            overflow-x: auto;
+            z-index: 1000;
+        }
+        .nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 5px;
+            font-weight: normal;
+            display: inline-block;
+            transition: transform 0.3s ease;
+            font-size: 28px;
+            font-family: 'Staatliches', cursive;
+            letter-spacing: 1px;
+            position: relative;
+        }
+        .nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 5px;
+            left: 50%;
+            background-color: white;
+            transition: all 0.3s ease;
+        }
+        .nav a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateX(5px);
+        }
+        .nav a:hover::after {
+            width: calc(100% - 40px);
+            left: 20px;
+        }
+        .zoom {
+            transform: scale(1.5);
+        }
+        .typed-text {
+            color: white;
+            font-size: 24px;
+            text-align: center;
+            max-width: 80%;
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg" id="bgElement">
+        <div class="nav">
+            <a href="file:///Users/dhatrisribiruduraju/Downloads/Pop%20Up%20of%20Brain.html" class="nav-link">Pop Up of Brain</a>
+            <a href="file:///Users/dhatrisribiruduraju/Downloads/brain-facts-html.html" class="nav-link">Facts</a>
+            <a href="file:///Users/dhatrisribiruduraju/Downloads/brain-lobe-simulator-html.html" class="nav-link">Simulations</a>
+            <a href="file:///Users/dhatrisribiruduraju/Downloads/brain-quiz-html.html" class="nav-link">Quiz</a>
+            <a href="file:///Users/dhatrisribiruduraju/Downloads/about-page-html.html" class="nav-link">About</a>
+        </div>
+        <div class="typed-text" id="typedText"></div>
+    </div>
+
+    <script>
+        const text = "Neuroscience is vast in mystery, it complexity rivals to the ones of space and the ocean. But, don't worry, we are here to take you through the basics of the brain. Click any of the buttons up top to start your journey.";
+        let index = 0;
+        const typingSpeed = 50; // milliseconds per character
+        const typedTextElement = document.getElementById('typedText');
+
+        function typeText() {
+            if (index < text.length) {
+                typedTextElement.innerHTML += text.charAt(index);
+                index++;
+                setTimeout(typeText, typingSpeed);
+            }
+        }
+
+        function untypeText(callback) {
+            const currentText = typedTextElement.innerHTML;
+            if (currentText.length > 0) {
+                typedTextElement.innerHTML = currentText.slice(0, -5); // Delete 5 characters at a time
+                setTimeout(() => untypeText(callback), 10); // Reduced delay to 10ms
+            } else if (callback) {
+                callback();
+            }
+        }
+
+        window.onload = typeText;
+
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const destinationUrl = this.getAttribute('href');
+                untypeText(() => {
+                    const bg = document.getElementById('bgElement');
+                    bg.classList.add('zoom');
+                    setTimeout(() => {
+                        window.location.href = destinationUrl;
+                    }, 1000);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

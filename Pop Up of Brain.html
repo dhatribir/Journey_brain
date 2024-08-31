@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pop Up of Brain</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+        .container {
+            position: relative;
+            width: 90%;
+            max-width: 1200px;
+            aspect-ratio: 4 / 3;
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 0 20px rgba(0,0,0,0.2);
+            border-radius: 10px;
+            overflow: hidden;
+            opacity: 0;
+            transform: scale(0.8);
+            transition: opacity 0.5s, transform 0.5s;
+        }
+        .container.show {
+            opacity: 1;
+            transform: scale(1);
+        }
+        .brain-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .lobe {
+            position: absolute;
+            cursor: pointer;
+            background-color: rgba(255, 255, 255, 0.2);
+            transition: background-color 0.3s;
+        }
+        .lobe:hover {
+            background-color: rgba(255, 255, 255, 0.4);
+        }
+        #frontal { top: 10%; left: 20%; width: 30%; height: 35%; }
+        #parietal { top: 10%; right: 20%; width: 25%; height: 30%; }
+        #temporal { bottom: 35%; left: 25%; width: 25%; height: 25%; }
+        #occipital { bottom: 25%; right: 25%; width: 20%; height: 20%; }
+        #info-box {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(255, 255, 255, 0.95);
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 15px;
+            width: 90%;
+            max-width: 400px;
+            display: none;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Lobes_of_the_brain_NL.svg/1280px-Lobes_of_the_brain_NL.svg.png" alt="Brain Diagram" class="brain-image">
+        <div id="frontal" class="lobe" data-lobe="Frontal Lobe"></div>
+        <div id="parietal" class="lobe" data-lobe="Parietal Lobe"></div>
+        <div id="temporal" class="lobe" data-lobe="Temporal Lobe"></div>
+        <div id="occipital" class="lobe" data-lobe="Occipital Lobe"></div>
+        <div id="info-box"></div>
+    </div>
+
+    <script>
+        const lobes = {
+            "Frontal Lobe": "The Frontal Lobe consists of the motor cortex and the prefrontal cortex. The motor cortex is responsible for the executive functions. The executive functions are thinking (hey that's what you're doing right now!), problem solving (math!!), and it supervises and directs other lobes. is responsible for the body movements we make. ",
+            "Parietal Lobe": "The Pariatal Lobe consists of the Somato Sensort Cortex, which is responsible for feeling, touch, temperature, pain, and pressure. The way that we navigate and orient ourselves is called spacial manipulation. The Pariatel Lobe takes care of spacial manipulation. Funny how things we thought were so easy are actually so complex.",
+            "Temporal Lobe": "The Temporal lobe is responsible for sounds. Sound consists of information we hear with ears which is then processed by the temporal lobe. The temporal lobe also contains Wernicke's Area which is responsible for language reception and comprehension.",
+            "Occipital Lobe": "The Ocepital Lobe, which is at the back of the brain, is responsible for our vision. Vison consists of seeing objects with our eyes which is then processed by this amazing lobe."
+        };
+
+        const infoBox = document.getElementById('info-box');
+        const container = document.querySelector('.container');
+
+        setTimeout(() => {
+            container.classList.add('show');
+        }, 500);
+
+        document.querySelectorAll('.lobe').forEach(lobe => {
+            lobe.addEventListener('click', function() {
+                const lobeName = this.getAttribute('data-lobe');
+                infoBox.innerHTML = `<h3>${lobeName}</h3><p>${lobes[lobeName]}</p>`;
+                infoBox.style.display = 'block';
+            });
+        });
+
+        document.addEventListener('click', function(event) {
+            if (!event.target.closest('.lobe') && !event.target.closest('#info-box')) {
+                infoBox.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
