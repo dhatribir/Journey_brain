@@ -6,7 +6,7 @@
     <title>Brain Quiz</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif, sans-serif;
             line-height: 1.6;
             color: #333;
             max-width: 800px;
@@ -30,7 +30,7 @@
         }
 
         h1, h2 {
-            color: #ffffff;
+            color: #000000;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
 
@@ -42,7 +42,17 @@
         }
 
         .question {
-            margin-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .question label {
+            font-size: 1.2em;
+            display: block;
+            margin-left: 25px;
+        }
+
+        .question input[type="radio"] {
+            margin-right: 10px;
         }
 
         button {
@@ -64,16 +74,27 @@
         .correct {
             color: green;
             font-weight: bold;
+            font-size: 1.2em;
         }
 
         .incorrect {
             color: red;
             font-weight: bold;
+            font-size: 1.2em;
         }
 
         #results {
             margin-top: 20px;
             font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        #results h2 {
+            font-size: 1.5em;
+        }
+
+        #results p {
+            font-size: 1.3em;
         }
     </style>
 </head>
@@ -84,42 +105,42 @@
         <div id="quiz">
             <div class="question">
                 <h2>1. What is the approximate weight of an adult human brain?</h2>
-                <input type="radio" name="q1" value="a"> a) 0.5 kg<br>
-                <input type="radio" name="q1" value="b"> b) 1.0 kg<br>
-                <input type="radio" name="q1" value="c"> c) 1.4 kg<br>
-                <input type="radio" name="q1" value="d"> d) 2.0 kg<br>
+                <label><input type="radio" name="q1" value="a"> a) 0.5 kg</label>
+                <label><input type="radio" name="q1" value="b"> b) 1.0 kg</label>
+                <label><input type="radio" name="q1" value="c"> c) 1.4 kg</label>
+                <label><input type="radio" name="q1" value="d"> d) 2.0 kg</label>
             </div>
 
             <div class="question">
                 <h2>2. What percentage of the body's total oxygen does the brain use?</h2>
-                <input type="radio" name="q2" value="a"> a) 5%<br>
-                <input type="radio" name="q2" value="b"> b) 10%<br>
-                <input type="radio" name="q2" value="c"> c) 20%<br>
-                <input type="radio" name="q2" value="d"> d) 30%<br>
+                <label><input type="radio" name="q2" value="a"> a) 5%</label>
+                <label><input type="radio" name="q2" value="b"> b) 10%</label>
+                <label><input type="radio" name="q2" value="c"> c) 20%</label>
+                <label><input type="radio" name="q2" value="d"> d) 30%</label>
             </div>
 
             <div class="question">
                 <h2>3. How many thoughts can the human brain generate per day?</h2>
-                <input type="radio" name="q3" value="a"> a) About 10,000<br>
-                <input type="radio" name="q3" value="b"> b) About 30,000<br>
-                <input type="radio" name="q3" value="c"> c) About 50,000<br>
-                <input type="radio" name="q3" value="d"> d) About 70,000<br>
+                <label><input type="radio" name="q3" value="a"> a) About 10,000</label>
+                <label><input type="radio" name="q3" value="b"> b) About 30,000</label>
+                <label><input type="radio" name="q3" value="c"> c) About 50,000</label>
+                <label><input type="radio" name="q3" value="d"> d) About 70,000</label>
             </div>
 
             <div class="question">
                 <h2>4. At what average speed does information travel in your brain?</h2>
-                <input type="radio" name="q4" value="a"> a) 68 mph (109 km/h)<br>
-                <input type="radio" name="q4" value="b"> b) 168 mph (270 km/h)<br>
-                <input type="radio" name="q4" value="c"> c) 268 mph (431 km/h)<br>
-                <input type="radio" name="q4" value="d"> d) 368 mph (592 km/h)<br>
+                <label><input type="radio" name="q4" value="a"> a) 68 mph (109 km/h)</label>
+                <label><input type="radio" name="q4" value="b"> b) 168 mph (270 km/h)</label>
+                <label><input type="radio" name="q4" value="c"> c) 268 mph (431 km/h)</label>
+                <label><input type="radio" name="q4" value="d"> d) 368 mph (592 km/h)</label>
             </div>
 
             <div class="question">
                 <h2>5. What percentage of the body's total energy does the brain consume?</h2>
-                <input type="radio" name="q5" value="a"> a) 5%<br>
-                <input type="radio" name="q5" value="b"> b) 10%<br>
-                <input type="radio" name="q5" value="c"> c) 20%<br>
-                <input type="radio" name="q5" value="d"> d) 30%<br>
+                <label><input type="radio" name="q5" value="a"> a) 5%</label>
+                <label><input type="radio" name="q5" value="b"> b) 10%</label>
+                <label><input type="radio" name="q5" value="c"> c) 20%</label>
+                <label><input type="radio" name="q5" value="d"> d) 30%</label>
             </div>
         </div>
 
@@ -127,6 +148,7 @@
 
         <div id="results"></div>
         <button onclick="tryAgain()" style="display: none;">Try Again!</button>
+
     </div>
 
     <script>
