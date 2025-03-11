@@ -3,88 +3,157 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Journey Into The Brain</title>
+    <title>Main Menu</title>
     <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
     <style>
         body, html {
+            height: 100%;
             margin: 0;
-            padding: 0;
-            height: 100%;
+            font-family: Arial, sans-serif;
             overflow: hidden;
         }
-        .image-container {
-            position: relative;
-            width: 100vw;
-            height: 100vh;
-            overflow: hidden;
-        }
-        .brain-image {
-            width: 100%;
+        .bg {
+            background-image: url('https://scitechdaily.com/images/Human-Brain-Memories-Neurons.jpg');
             height: 100%;
-            object-fit: cover;
-            position: absolute;
-            top: 0;
-            left: 0;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
             transition: transform 1s ease-in-out;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
-        .title {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: white;
-            font-family: 'Staatliches', cursive;
-            font-size: 5vw;
+        .nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 15px 0;
             text-align: center;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-            z-index: 10;
+            white-space: nowrap;
+            overflow-x: auto;
+            z-index: 1000;
         }
-        .button-container {
-            position: absolute;
-            bottom: 10%;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 10;
-        }
-        .button {
-            padding: 20px 40px;
-            font-size: 2em;
-            font-family: 'Staatliches', cursive;
-            background-color: rgba(255, 255, 255, 0.8);
-            color: #333;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: all 0.3s ease;
+        .nav a {
+            color: white;
             text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 5px;
+            font-weight: normal;
             display: inline-block;
-            text-transform: uppercase;
-            letter-spacing: 2px;
+            transition: transform 0.3s ease;
+            font-size: 28px;
+            font-family: 'Staatliches', cursive;
+            letter-spacing: 1px;
+            position: relative;
         }
-        .button:hover {
-            background-color: rgba(255, 255, 255, 1);
-            transform: scale(1.05);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        .nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 5px;
+            left: 50%;
+            background-color: white;
+            transition: all 0.3s ease;
+        }
+        .nav a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateX(5px);
+        }
+        .nav a:hover::after {
+            width: calc(100% - 40px);
+            left: 20px;
+        }
+        .zoom {
+            transform: scale(1.5);
+        }
+        .typed-text {
+            color: white;
+            font-size: 24px;
+            text-align: center;
+            max-width: 80%;
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            border-radius: 10px;
         }
     </style>
 </head>
 <body>
-    <div class="image-container">
-        <img src="https://images.unsplash.com/photo-1617791160536-598cf32026fb?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YnJhaW58ZW58MHx8MHx8fDA%3D" alt="Stylized brain on gradient background" class="brain-image">
-        <div class="title">Journey Into The Brain</div>
-        <div class="button-container">
-            <a href="#" class="button" id="dive-button">Let's Dive In</a>
+    <div class="bg" id="bgElement">
+        <div class="nav">
+            <a href="./popup_brain.html" class="nav-link" data-page="popup_brain.html">Pop Up of Brain</a>
+            <a href="./facts.html" class="nav-link" data-page="facts.html">Facts</a>
+            <a href="./simulations.html" class="nav-link" data-page="simulations.html">Simulations</a>
+            <a href="./quiz.html" class="nav-link" data-page="quiz.html">Quiz</a>
+            <a href="./aboutPage.html" class="nav-link" data-page="aboutPage.html">About</a>
         </div>
+        <div class="typed-text" id="typedText"></div>
+        <div class="content" id="content">Loading content...</div>
     </div>
 
     <script>
-        document.getElementById('dive-button').addEventListener('click', function(e) {
-            e.preventDefault();
-            var brainImage = document.querySelector('.brain-image');
-            brainImage.style.transform = 'scale(3.0)';
-            setTimeout(function() {
-                window.location.href = 'file:///Users/dhatrisribiruduraju/Downloads/Redirected%20Page.html#about';
-            }, 1000);
+        const text = "Neuroscience is vast in mystery, it's complexity rivals to the ones of space and the ocean. But, don't worry, we are here to take you through the basics of the brain. Click any of the buttons up top to start your journey.";
+        let index = 0;
+        const typingSpeed = 30; // milliseconds per character
+        const typedTextElement = document.getElementById('typedText');
+
+        function typeText() {
+            if (index < text.length) {
+                typedTextElement.innerHTML += text.charAt(index);
+                index++;
+                setTimeout(typeText, typingSpeed);
+            }
+        }
+
+        function untypeText(callback) {
+            const currentText = typedTextElement.innerHTML;
+            if (currentText.length > 0) {
+                typedTextElement.innerHTML = currentText.slice(0, -5); // Delete 20 characters at a time
+                setTimeout(() => untypeText(callback), 10); // Reduced delay to 10ms
+            } else if (callback) {
+                callback();
+            }
+        }
+
+        window.onload = typeText;
+
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const destinationUrl = this.getAttribute('href');
+                untypeText(() => {
+                    const bg = document.getElementById('bgElement');
+                    bg.classList.add('zoom');
+                    setTimeout(() => {
+                        window.location.href = destinationUrl;
+                    }, 1000);
+                });
+            });
+        });
+        function loadPage(pageUrl) {
+            const contentDiv = document.getElementById("content");
+            contentDiv.style.opacity = 0; // Fade out effect
+            fetch(pageUrl)
+                .then(response => response.text())
+                .then(data => {
+                    setTimeout(() => {
+                        contentDiv.innerHTML = data; // Insert the loaded HTML content
+                        contentDiv.style.opacity = 1; // Fade in effect
+                    }, 500);
+                });
+        }
+
+        // Set initial content
+        loadPage("popup_brain.html");
+
+        // Attach event listeners to navigation links
+        document.querySelectorAll('.nav a').forEach(link => {
+            link.addEventListener('click', function (event) {
+                event.preventDefault(); // Prevent default link behavior
+                const pageUrl = this.getAttribute("data-page");
+                loadPage(pageUrl);
+            });
         });
     </script>
 </body>
