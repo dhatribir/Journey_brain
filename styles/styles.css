@@ -91,6 +91,19 @@ html, body {
 
 /* Mobile-friendly Navigation */
 @media (max-width: 768px) {
+     .about-container {
+        margin-top: 80px;  
+        width: 90%;
+       
+        text-align: center;
+        font-size: 1em;
+    }
+
+
+    p {
+        font-size: 1em;
+        line-height: 1.5;
+    }
     .nav {
         flex-direction: column;
         text-align: center;
@@ -102,6 +115,14 @@ html, body {
         width: 100%;
         padding: 10px;
     }
+     /* Fix overlap issue */
+    .typed-text {
+        margin-top: 80px; /* Push text down */
+        font-size: 1em;
+        text-align: center;
+        padding: 10px;
+    }
+   
 }
 
 /* 🔹 FACTS PAGE MOBILE FIX */
@@ -233,7 +254,7 @@ h1, h2, h3, p {
     gap: 10px;
     max-width: 80%;
     text-align: center;
-    margin-top: 55%; /* Add space below navbar */
+    margin-top: 70%; /* Add space below navbar */
 }
 /* Fact box: Reduce padding & margins */
 .fact {
