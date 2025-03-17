@@ -140,7 +140,7 @@ html, body {
 
     /* Fix Navbar Overlap */
     .content {
-        margin-top: 80px; /* Push down the content below the navbar */
+        margin-top: 100px; /* Push down the content below the navbar */
     }
 
     /* Adjust Fact Cards */
