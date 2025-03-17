@@ -92,8 +92,9 @@ html, body {
 /* Mobile-friendly Navigation */
 @media (max-width: 768px) {
      .about-container {
+        margin-top: 80px;  
         width: 90%;
-        margin: auto;
+       
         text-align: center;
         font-size: 1em;
     }
@@ -136,7 +137,7 @@ html, body {
         padding: 10px;
     }
    
-    @media (max-width: 768px) {
+
     /* Fix Navbar Overlap */
     .content {
         margin-top: 80px; /* Push down the content below the navbar */
@@ -144,6 +145,7 @@ html, body {
 
     /* Adjust Fact Cards */
     .fact-container {
+         margin-top: 80px;
         display: flex;
         flex-wrap: wrap;
         justify-content: center; /* Center align facts */
@@ -165,12 +167,13 @@ html, body {
         margin: 20px auto;
         display: block;
     }
-}
+
 
     
      .quiz-container {
+        margin-top: 80px;
         width: 90%;
-        margin: auto;
+       
         padding: 15px;
     }
 
