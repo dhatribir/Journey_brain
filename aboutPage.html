@@ -4,111 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us - Student Website</title>
-    <style>
-        body, html {
-            margin: 0;
-            padding: 0;
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(45deg, #ff9a9e, #fad0c4, #ffecd2, #fcb69f);
-            background-size: 400% 400%;
-            animation: gradientBG 15s ease infinite;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
+    <link rel="stylesheet" href="styles/styles.css">
 
-        @keyframes gradientBG {
-            0% {background-position: 0% 50%;}
-            50% {background-position: 100% 50%;}
-            100% {background-position: 0% 50%;}
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: rgba(255, 255, 255, 0.8);
-            border-radius: 15px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-            flex-grow: 1;
-        }
-
-        header {
-            text-align: center;
-            padding: 20px 0;
-            background-color: #ff9a9e;
-            color: white;
-            border-radius: 10px 10px 0 0;
-        }
-
-        h1 {
-            margin: 0;
-            font-size: 2.5em;
-        }
-
-        .content {
-            padding: 20px;
-        }
-
-        .team-member {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-bottom: 30px;
-            background-color: white;
-            padding: 25px;
-            border-radius: 10px;
-            transition: transform 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        .team-member:hover {
-            transform: translateY(-5px);
-        }
-
-        .team-member img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            margin-bottom: 20px;
-            object-fit: cover;
-        }
-
-        .team-member-info {
-            text-align: center;
-        }
-
-        .team-member-info h2 {
-            margin: 0 0 10px 0;
-            color: #ff9a9e;
-            font-size: 1.8em;
-        }
-
-        .team-member-info p {
-            margin: 0 0 15px 0;
-            color: #666;
-            font-size: 1.1em;
-            line-height: 1.6;
-        }
-
-        footer {
-            text-align: center;
-            padding: 20px;
-            background-color: #ff9a9e;
-            color: white;
-            margin-top: auto;
-        }
-    </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>About Our Team</h1>
-        </header>
+<div class="nav">
+    <a href="index.html" class="nav-link home-button">Home</a>
+    <a href="popup_brain.html" class="nav-link" data-page="popup_brain.html">Pop Up of Brain</a>
+    <a href="facts.html" class="nav-link" data-page="facts.html">Facts</a>
+    <a href="simulations.html" class="nav-link" data-page="simulations.html">Simulations</a>
+    <a href="quiz.html" class="nav-link" data-page="quiz.html">Quiz</a>
+    <a href="aboutPage.html" class="nav-link" data-page="aboutPage.html">About</a>
+</div>
+
+<div class="aboutcontainer">
         
-        <div class="content">
+        <div class="about">
+            <h1>About Our Team</h1>
             <div class="team-member">
-                <img src="/Users/dhatrisribiruduraju/Downloads/IMG_4240.png" alt="Team Member 1">
                 <div class="team-member-info">
                     <h2>Dhatri Biruduraju</h2>
                     <p>Web Developer</p>
@@ -117,7 +30,6 @@
             </div>
             
             <div class="team-member">
-                <img src="/Users/dhatrisribiruduraju/Downloads/IMG_6872.png" alt="Team Member 2">
                 <div class="team-member-info">
                     <h2>Somya Panchal</h2>
                     <p>Web Advisor </p>
