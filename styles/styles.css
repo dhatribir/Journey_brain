@@ -99,23 +99,37 @@ html, body {
         font-size: 1em;
     }
 
+    h1 {
+        font-size: 1.8em; /* Slightly larger but fits mobile */
+    }
 
     p {
         font-size: 1em;
         line-height: 1.5;
     }
     .nav {
-        flex-direction: column;
-        text-align: center;
-        padding: 5px;
+        display: flex;
+        flex-direction: row; /* Keep items in one row */
+        flex-wrap: wrap;
+        justify-content: center;
+        background-color: rgba(0, 0, 0, 0.8);
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 10px 0;
+        z-index: 1000;
     }
 
     .nav a {
-        display: block;
-        width: 100%;
-        padding: 10px;
+        font-size: 14px; /* Make text smaller */
+        padding: 8px 12px;
+        text-align: center;
+        color: white;
+        text-decoration: none;
     }
-     /* Fix overlap issue */
+
+    /* Fix overlap issue */
     .typed-text {
         margin-top: 80px; /* Push text down */
         font-size: 1em;
@@ -123,76 +137,62 @@ html, body {
         padding: 10px;
     }
    
-}
 
-/* 🔹 FACTS PAGE MOBILE FIX */
-.fact-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-    padding: 10px;
-}
-
-.fact {
-    background-color: white;
-    color: black;
-    border-radius: 8px;
-    padding: 15px;
-    width: 90%; /* Ensure facts are readable */
-    max-width: 400px;
-    text-align: center;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
-}
-
-/* 🔹 BRAIN POPUP PAGE MOBILE FIX */
-.container {
-    width: 90%;
-    max-width: 800px;
-    margin: auto;
-}
-
-.brain-image {
-    width: 100%;
-    height: auto;
-}
-
-/* 🔹 TRIVIA SECTION MOBILE FIX */
-#trivia {
-    width: 100%;
-    padding: 10px;
-    text-align: center;
-}
-
-#showMore {
-    width: 100%;
-    max-width: 300px;
-    margin: 10px auto;
-}
-
-/* 🔹 MAKE SURE EVERYTHING IS CENTERED */
-h1, h2, h3, p {
-    text-align: center;
-}
-
-/* 🔹 MOBILE-SPECIFIC CHANGES */
-@media (max-width: 768px) {
-    .fact {
-        width: 100%;
+    /* Fix Navbar Overlap */
+    .content {
+        margin-top: 80px; /* Push down the content below the navbar */
     }
 
+    /* Adjust Fact Cards */
+    .fact-container {
+         margin-top: 80px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center; /* Center align facts */
+        gap: 10px; /* Add space between facts */
+        padding: 10px;
+    }
+
+    .fact {
+        width: 90%; /* Make facts wider for better readability */
+        padding: 15px;
+        text-align: center; /* Center text for better mobile view */
+        font-size: 1.1em;
+    }
+
+    /* Fix Button Spacing */
     #showMore {
         width: 100%;
+        max-width: 300px;
+        margin: 20px auto;
+        display: block;
     }
 
-    .content {
-        margin-top: 100px; /* Extra push for mobile */
+
+    
+     .quiz-container {
+        margin-top: 80px;
+        width: 90%;
+       
+        padding: 15px;
     }
 
-    .nav a {
-        font-size: 1em; /* Reduce nav link size */
+    .question {
+        font-size: 1em; /* Reduce text size for better spacing */
     }
 
+    /* Improve Spacing of Radio Buttons */
+    .question label {
+        display: block;
+        font-size: 1em;
+        margin-bottom: 8px;
+    }
+
+    /* Reduce Size of Quiz Header */
+    h1, h2 {
+        font-size: 1.5em; /* Prevent overflow on smaller screens */
+        text-align: center;
+    }
 }
 
 
@@ -254,7 +254,7 @@ h1, h2, h3, p {
     gap: 10px;
     max-width: 80%;
     text-align: center;
-    margin-top: 70%; /* Add space below navbar */
+    margin-top: 55%; /* Add space below navbar */
 }
 /* Fact box: Reduce padding & margins */
 .fact {
@@ -314,7 +314,3 @@ button:hover {
     font-size: 1.2em;
     transition: opacity 0.5s ease-in-out;
 }
-
-
-
-
