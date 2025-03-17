@@ -91,6 +91,21 @@ html, body {
 
 /* Mobile-friendly Navigation */
 @media (max-width: 768px) {
+     .about-container {
+        width: 90%;
+        margin: auto;
+        text-align: center;
+        font-size: 1em;
+    }
+
+    h1 {
+        font-size: 1.8em; /* Slightly larger but fits mobile */
+    }
+
+    p {
+        font-size: 1em;
+        line-height: 1.5;
+    }
     .nav {
         display: flex;
         flex-direction: row; /* Keep items in one row */
@@ -120,18 +135,61 @@ html, body {
         text-align: center;
         padding: 10px;
     }
-    .about {
-    margin-top: 80px;
-    padding: 10px;
-    text-align: center;
-    font-size: 1em;
+   
+    @media (max-width: 768px) {
+    /* Fix Navbar Overlap */
+    .content {
+        margin-top: 80px; /* Push down the content below the navbar */
     }
+
+    /* Adjust Fact Cards */
     .fact-container {
-    display: grid;
-    padding: 10px;
-    text-align: center;
-    margin-top: 80px; 
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center; /* Center align facts */
+        gap: 10px; /* Add space between facts */
+        padding: 10px;
+    }
+
+    .fact {
+        width: 90%; /* Make facts wider for better readability */
+        padding: 15px;
+        text-align: center; /* Center text for better mobile view */
+        font-size: 1.1em;
+    }
+
+    /* Fix Button Spacing */
+    #showMore {
+        width: 100%;
+        max-width: 300px;
+        margin: 20px auto;
+        display: block;
+    }
 }
+
+    
+     .quiz-container {
+        width: 90%;
+        margin: auto;
+        padding: 15px;
+    }
+
+    .question {
+        font-size: 1em; /* Reduce text size for better spacing */
+    }
+
+    /* Improve Spacing of Radio Buttons */
+    .question label {
+        display: block;
+        font-size: 1em;
+        margin-bottom: 8px;
+    }
+
+    /* Reduce Size of Quiz Header */
+    h1, h2 {
+        font-size: 1.5em; /* Prevent overflow on smaller screens */
+        text-align: center;
+    }
 }
 
 
