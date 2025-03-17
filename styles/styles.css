@@ -145,7 +145,7 @@ html, body {
 
     /* Adjust Fact Cards */
     .fact-container {
-         margin-top: 80px;
+         margin-top: 80px; /* Push text down */
         display: flex;
         flex-wrap: wrap;
         justify-content: center; /* Center align facts */
@@ -154,6 +154,7 @@ html, body {
     }
 
     .fact {
+         margin-top: 80px; /* Push text down */
         width: 90%; /* Make facts wider for better readability */
         padding: 15px;
         text-align: center; /* Center text for better mobile view */
