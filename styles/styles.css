@@ -99,9 +99,6 @@ html, body {
         font-size: 1em;
     }
 
-    h1 {
-        font-size: 1.8em; /* Slightly larger but fits mobile */
-    }
 
     p {
         font-size: 1em;
@@ -146,18 +143,12 @@ html, body {
     /* Adjust Fact Cards */
     .fact-container {
          margin-top: 80px;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center; /* Center align facts */
-        gap: 10px; /* Add space between facts */
-        padding: 10px;
+      
     }
 
     .fact {
-        width: 90%; /* Make facts wider for better readability */
-        padding: 15px;
-        text-align: center; /* Center text for better mobile view */
-        font-size: 1.1em;
+        width: 100%; /* Make facts wider for better readability */
+       
     }
 
     /* Fix Button Spacing */
