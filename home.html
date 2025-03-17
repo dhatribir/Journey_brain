@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Neuroscience Journey</title>
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+<div class="content">
+    <div class="typed-text" id="typedText"></div>
+
+</div>
+
+<script>
+    const text = "Neuroscience is vast in mystery, its complexity rivals that of space and the ocean. But don't worry, we are here to guide you through the basics of the brain. Click any of the links below to start your journey.";
+    let index = 0;
+    const typingSpeed = 15;
+    const typedTextElement = document.getElementById('typedText');
+
+    function typeText() {
+        if (index < text.length) {
+            typedTextElement.innerHTML += text.charAt(index);
+            index++;
+            setTimeout(typeText, typingSpeed);
+        }
+    }
+    window.onload = typeText;
+</script>
+</body>
+</html>
