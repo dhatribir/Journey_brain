@@ -120,6 +120,18 @@ html, body {
         text-align: center;
         padding: 10px;
     }
+    .about {
+    margin-top: 80px;
+    padding: 10px;
+    text-align: center;
+    font-size: 1em;
+    }
+    .fact-container {
+    display: grid;
+    padding: 10px;
+    text-align: center;
+    margin-top: 80px; 
+}
 }
 
 
