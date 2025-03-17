@@ -4,123 +4,75 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pop Up of Brain</title>
-    <style>
-        body, html {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-            background-size: 400% 400%;
-            animation: gradient 15s ease infinite;
-        }
-        @keyframes gradient {
-            0% {
-                background-position: 0% 50%;
-            }
-            50% {
-                background-position: 100% 50%;
-            }
-            100% {
-                background-position: 0% 50%;
-            }
-        }
-        .container {
-            position: relative;
-            width: 90%;
-            max-width: 1200px;
-            aspect-ratio: 4 / 3;
-            background-color: rgba(255, 255, 255, 0.9);
-            box-shadow: 0 0 20px rgba(0,0,0,0.2);
-            border-radius: 10px;
-            overflow: hidden;
-            opacity: 0;
-            transform: scale(0.8);
-            transition: opacity 0.5s, transform 0.5s;
-        }
-        .container.show {
-            opacity: 1;
-            transform: scale(1);
-        }
-        .brain-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        .lobe {
-            position: absolute;
-            cursor: pointer;
-            background-color: rgba(255, 255, 255, 0.2);
-            transition: background-color 0.3s;
-            border: 2px solid rgba(255, 255, 255, 0.5);
-            border-radius: 50%;
-        }
-        .lobe:hover {
-            background-color: rgba(255, 255, 255, 0.4);
-        }
-        #frontal { top: 22%; left: 28%; width: 25%; height: 30%; }
-        #parietal { top: 15%; right: 25%; width: 25%; height: 30%; }
-        #temporal { top: 48%; left: 25%; width: 25%; height: 25%; }
-        #occipital { top: 50%; right: 5%; width: 18%; height: 22%; }
-        #info-box {
-            position: absolute;
-            bottom: 10px;
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: rgba(255, 255, 255, 0.95);
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            padding: 15px;
-            width: 90%;
-            max-width: 400px;
-            display: none;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-    </style>
+    <link rel="stylesheet" href="styles/styles.css">
+
 </head>
 <body>
-    <div class="container">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Lobes_of_the_brain_NL.svg/1280px-Lobes_of_the_brain_NL.svg.png" alt="Brain Diagram" class="brain-image">
-        <div id="frontal" class="lobe" data-lobe="Frontal Lobe"></div>
-        <div id="parietal" class="lobe" data-lobe="Parietal Lobe"></div>
-        <div id="temporal" class="lobe" data-lobe="Temporal Lobe"></div>
-        <div id="occipital" class="lobe" data-lobe="Occipital Lobe"></div>
-        <div id="info-box"></div>
-       
+<div class="nav">
+    <a href="index.html" class="nav-link home-button">Home</a>
+    <a href="popup_brain.html" class="nav-link" data-page="popup_brain.html">Pop Up of Brain</a>
+    <a href="facts.html" class="nav-link" data-page="facts.html">Facts</a>
+    <a href="simulations.html" class="nav-link" data-page="simulations.html">Simulations</a>
+    <a href="quiz.html" class="nav-link" data-page="quiz.html">Quiz</a>
+    <a href="aboutPage.html" class="nav-link" data-page="aboutPage.html">About</a>
+</div>
 
-    </div>
+<div class="brain-container">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Lobes_of_the_brain_NL.svg/1280px-Lobes_of_the_brain_NL.svg.png" alt="Brain Diagram" class="brain-image">
+    <div id="frontal" class="lobe" data-lobe="Frontal Lobe"></div>
+    <div id="parietal" class="lobe" data-lobe="Parietal Lobe"></div>
+    <div id="temporal" class="lobe" data-lobe="Temporal Lobe"></div>
+    <div id="occipital" class="lobe" data-lobe="Occipital Lobe"></div>
+    <div id="info-box"></div>
+</div>
+
+
 
     <script>
-        const lobes = {
-            "Frontal Lobe": "The Frontal Lobe consists of the motor cortex and the prefrontal cortex. The motor cortex is responsible for the executive functions. The executive functions are thinking (hey that's what you're doing right now!), problem solving (math!!), and it supervises and directs other lobes. is responsible for the body movements we make. ",
-            "Parietal Lobe": "The Pariatal Lobe consists of the Somato Sensort Cortex, which is responsible for feeling, touch, temperature, pain, and pressure. The way that we navigate and orient ourselves is called spacial manipulation. The Pariatel Lobe takes care of spacial manipulation. Funny how things we thought were so easy are actually so complex.",
-            "Temporal Lobe": "The Temporal lobe is responsible for sounds. Sound consists of information we hear with ears which is then processed by the temporal lobe. The temporal lobe also contains Wernicke's Area which is responsible for language reception and comprehension.",
-            "Occipital Lobe": "The Ocepital Lobe, which is at the back of the brain, is responsible for our vision. Vison consists of seeing objects with our eyes which is then processed by this amazing lobe."
-        };
+        document.addEventListener("DOMContentLoaded", function () {
+            const lobes = {
+                "Frontal Lobe": "The Frontal Lobe controls thinking, problem-solving, and body movement.",
+                "Parietal Lobe": "The Parietal Lobe processes touch, temperature, and spatial awareness.",
+                "Temporal Lobe": "The Temporal Lobe handles hearing, memory, and language comprehension.",
+                "Occipital Lobe": "The Occipital Lobe is responsible for vision and visual processing."
+            };
 
-        const infoBox = document.getElementById('info-box');
-        const container = document.querySelector('.container');
+            const infoBox = document.getElementById('info-box');
 
-        setTimeout(() => {
-            container.classList.add('show');
-        }, 500);
+            document.querySelectorAll('.lobe').forEach(lobe => {
+                lobe.addEventListener('click', function (event) {
+                    const lobeName = this.getAttribute('data-lobe');
+                    infoBox.innerHTML = `<h3>${lobeName}</h3><p>${lobes[lobeName]}</p>`;
 
-        document.querySelectorAll('.lobe').forEach(lobe => {
-            lobe.addEventListener('click', function() {
-                const lobeName = this.getAttribute('data-lobe');
-                infoBox.innerHTML = `<h3>${lobeName}</h3><p>${lobes[lobeName]}</p>`;
-                infoBox.style.display = 'block';
+                    // Get the position of the clicked lobe
+                    const rect = this.getBoundingClientRect();
+                    const screenWidth = window.innerWidth;
+
+                    // Center the info box near the clicked lobe
+                    let leftPosition = rect.left + rect.width / 2 - infoBox.offsetWidth / 2;
+
+                    // Prevent info box from overflowing off-screen
+                    if (leftPosition + infoBox.offsetWidth > screenWidth - 20) {
+                        leftPosition = screenWidth - infoBox.offsetWidth - 20; // Adjust left to prevent overflow
+                    }
+                    if (leftPosition < 20) {
+                        leftPosition = 20; // Prevent overflow on left
+                    }
+
+                    infoBox.style.left = `${leftPosition}px`;
+                    infoBox.style.top = `${rect.top + rect.height + 10}px`;
+                    infoBox.style.display = 'block';
+                });
+            });
+
+            // Hide info box when clicking outside
+            document.addEventListener('click', function (event) {
+                if (!event.target.closest('.lobe') && !event.target.closest('#info-box')) {
+                    infoBox.style.display = 'none';
+                }
             });
         });
 
-        document.addEventListener('click', function(event) {
-            if (!event.target.closest('.lobe') && !event.target.closest('#info-box')) {
-                infoBox.style.display = 'none';
-            }
-        });
     </script>
 </body>
 </html>

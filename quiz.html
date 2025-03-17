@@ -4,103 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Brain Quiz</title>
-    <style>
-        body {
-            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background: linear-gradient(-45deg, #ff0000, #0000ff, #ff0000, #0000ff);
-            background-size: 400% 400%;
-            animation: gradient 15s ease infinite;
-        }
+    <link rel="stylesheet" href="styles/styles.css">
 
-        @keyframes gradient {
-            0% {
-                background-position: 0% 50%;
-            }
-            50% {
-                background-position: 100% 50%;
-            }
-            100% {
-                background-position: 0% 50%;
-            }
-        }
-
-        h1, h2 {
-            color: #000000;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-        }
-
-        .quiz-container {
-            background-color: rgba(255, 255, 255, 0.8);
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-
-        .question {
-            margin-bottom: 30px;
-        }
-
-        .question label {
-            font-size: 1.2em;
-            display: block;
-            margin-left: 25px;
-        }
-
-        .question input[type="radio"] {
-            margin-right: 10px;
-        }
-
-        button {
-            background-color: #0000ff;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1em;
-            transition: background-color 0.3s ease;
-            margin-top: 10px;
-        }
-
-        button:hover {
-            background-color: #ff0000;
-        }
-
-        .correct {
-            color: green;
-            font-weight: bold;
-            font-size: 1.2em;
-        }
-
-        .incorrect {
-            color: red;
-            font-weight: bold;
-            font-size: 1.2em;
-        }
-
-        #results {
-            margin-top: 20px;
-            font-weight: bold;
-            font-size: 1.2em;
-        }
-
-        #results h2 {
-            font-size: 1.5em;
-        }
-
-        #results p {
-            font-size: 1.3em;
-        }
-    </style>
 </head>
 <body>
-    <div class="quiz-container">
-        <h1>Brain Quiz</h1>
+<div class="nav">
+    <a href="index.html" class="nav-link" data-page="home.html">Home</a>
+    <a href="popup_brain.html" class="nav-link" data-page="popup_brain.html">Pop Up of Brain</a>
+    <a href="facts.html" class="nav-link" data-page="facts.html">Facts</a>
+    <a href="simulations.html" class="nav-link" data-page="simulations.html">Simulations</a>
+    <a href="quiz.html" class="nav-link" data-page="quiz.html">Quiz</a>
+    <a href="aboutPage.html" class="nav-link" data-page="aboutPage.html">About</a>
+</div>
+
+<div class="quiz-container">
+
+
+    <h1>Brain Quiz</h1>
 
         <div id="quiz">
             <div class="question">

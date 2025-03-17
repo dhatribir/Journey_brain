@@ -4,50 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Brain Lobe Simulator</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f0f0f0;
-        }
-        .container {
-            text-align: center;
-        }
-        .brain {
-            width: 300px;
-            height: 300px;
-            margin: 20px auto;
-            position: relative;
-        }
-        .lobe {
-            position: absolute;
-            width: 150px;
-            height: 150px;
-            cursor: pointer;
-            transition: opacity 0.3s;
-        }
-        .lobe:hover {
-            opacity: 0.8;
-        }
-        #frontal { top: 0; left: 75px; background-color: #ff6b6b; clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); }
-        #parietal { top: 0; left: 0; background-color: #4ecdc4; clip-path: polygon(100% 50%, 50% 100%, 0% 50%, 50% 0%); }
-        #temporal { bottom: 0; left: 0; background-color: #45b7d1; clip-path: polygon(100% 0%, 50% 50%, 100% 100%, 0% 100%, 0% 0%); }
-        #occipital { bottom: 0; right: 0; background-color: #feca57; clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 50% 50%, 0% 100%); }
-        #info {
-            margin-top: 20px;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            background-color: white;
-        }
-    </style>
+    <link rel="stylesheet" href="styles/styles.css">
+
 </head>
 <body>
-    <div class="container">
+<div class="nav">
+    <a href="index.html" class="nav-link" data-page="home.html">Home</a>
+    <a href="popup_brain.html" class="nav-link" data-page="popup_brain.html">Pop Up of Brain</a>
+    <a href="facts.html" class="nav-link" data-page="facts.html">Facts</a>
+    <a href="simulations.html" class="nav-link" data-page="simulations.html">Simulations</a>
+    <a href="quiz.html" class="nav-link" data-page="quiz.html">Quiz</a>
+    <a href="aboutPage.html" class="nav-link" data-page="aboutPage.html">About</a>
+</div>
+
+<div class="container">
+
         <h1>Brain Lobe Simulator</h1>
         <div class="brain">
             <div class="lobe" id="frontal" onclick="showInfo('frontal')"></div>
