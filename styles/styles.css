@@ -141,12 +141,12 @@ html, body {
 
     /* Fix Navbar Overlap */
     .content {
-        top: 90%; /* Push down the content below the navbar */
+        top: 100%; /* Push down the content below the navbar */
     }
 
     /* Adjust Fact Cards */
     .fact-container {
-        
+         margin-top: 55%;
         display: flex;
         flex-wrap: wrap;
         justify-content: center; /* Center align facts */
@@ -180,7 +180,7 @@ html, body {
 
     
      .quiz-container {
-        margin-top: 80px;
+        margin-top: 55%;
         width: 90%;
        
         padding: 15px;
