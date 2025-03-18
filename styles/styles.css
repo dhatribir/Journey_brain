@@ -141,7 +141,7 @@ html, body {
 
     /* Fix Navbar Overlap */
     .content {
-        top: 50%; /* Push down the content below the navbar */
+        top: 90%; /* Push down the content below the navbar */
     }
 
     /* Adjust Fact Cards */
