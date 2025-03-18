@@ -152,6 +152,11 @@ html, body {
         gap: 10px; /* Add space between facts */
         padding: 10px;
     }
+    .fact-container, .quiz-container, .brain-container, .aboutcontainer {
+    color: black;
+    padding: 57px;
+    border-radius: 10px;
+    }
 
     .fact {
          margin-top: 80px; /* Push text down */
