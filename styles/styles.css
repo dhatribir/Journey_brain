@@ -162,7 +162,7 @@ html, body {
     }
 
     .fact {
-         margin-top: 80px; /* Push text down */
+      
         width: 90%; /* Make facts wider for better readability */
         padding: 15px;
         text-align: center; /* Center text for better mobile view */
