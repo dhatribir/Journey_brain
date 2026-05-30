@@ -3,8 +3,50 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>4 Week Brain Workshop</title>
+  <title>Brain Explorer Workshops</title>
   <link rel="stylesheet" href="styles/styles.css">
+  <style>
+    .workshop-page{max-width:1220px;margin:0 auto;padding:36px 18px 70px;}
+    .workshop-hero{text-align:center;margin:10px auto 32px;}
+    .workshop-hero .mini-label{display:inline-block;background:#fff1ad;border:3px dashed #25272d;border-radius:999px;padding:8px 18px;font-weight:900;color:#4b35d1;margin-bottom:10px;}
+    .workshop-hero .subtitle{max-width:780px;margin:18px auto 0;font-size:1.28rem;line-height:1.55;color:#293143;}
+    .mission-tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:28px auto 28px;max-width:1060px;}
+    .mission-tab{border:4px solid #25272d;border-radius:24px;background:#fff;box-shadow:5px 7px 0 #25272d;padding:16px 12px;cursor:pointer;text-align:left;font-family:inherit;transition:transform .15s ease, background .15s ease;}
+    .mission-tab:hover{transform:translateY(-3px);}
+    .mission-tab.active{background:#fff1ad;transform:translateY(-4px);}
+    .mission-tab small{display:inline-block;background:#eee7ff;color:#4b35d1;border-radius:999px;padding:5px 12px;font-weight:900;font-size:.9rem;margin-bottom:8px;}
+    .mission-tab strong{display:block;color:#172036;font-size:1.18rem;line-height:1.2;}
+    .mission-tab span{display:block;color:#5b6a86;font-size:.95rem;margin-top:5px;font-weight:800;}
+    .mission-panel{display:none;}
+    .mission-panel.active{display:block;animation:softPop .18s ease-out;}
+    @keyframes softPop{from{opacity:.55;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+    .mission-focus-card{position:relative;overflow:hidden;background:linear-gradient(135deg,#fff,#fff8df);border:4px solid #25272d;border-radius:34px;box-shadow:8px 10px 0 #25272d;padding:34px;margin:0 auto 28px;}
+    .mission-focus-card.blue{background:linear-gradient(135deg,#fff,#effaff);}
+    .mission-focus-card.yellow{background:linear-gradient(135deg,#fff,#fff5bf);}
+    .mission-focus-card.pink{background:linear-gradient(135deg,#fff,#fff0f8);}
+    .mission-focus-top{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;}
+    .mission-badge{display:inline-block;background:#eee7ff;color:#4b35d1;border-radius:999px;padding:11px 22px;font-weight:900;font-size:1.08rem;}
+    .mission-min{color:#4b35d1;font-size:1.2rem;font-weight:900;}
+    .mission-emoji{font-size:3.2rem;margin:26px 0 8px;}
+    .mission-focus-card h2{font-size:2.7rem;margin:8px 0 10px;color:#172036;}
+    .mission-focus-card .big-idea{font-size:1.25rem;color:#5b6a86;line-height:1.55;max-width:760px;}
+    .mission-layout{display:grid;grid-template-columns:1.05fr .95fr;gap:24px;align-items:start;margin-top:24px;}
+    .activity-list{display:grid;gap:14px;}
+    .mini-activity{background:#fff;border:3px solid #25272d;border-radius:22px;box-shadow:4px 5px 0 #25272d;padding:18px 20px;display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:start;}
+    .mini-activity .num{background:#ffd6e6;border:3px solid #25272d;border-radius:50%;width:48px;height:48px;display:grid;place-items:center;font-weight:900;color:#172036;}
+    .mini-activity h3{margin:0 0 6px;font-size:1.25rem;color:#172036;}
+    .mini-activity p{margin:0;color:#5b6a86;line-height:1.45;font-size:1rem;}
+    .teacher-card,.reflection-card{background:#fff;border:3px dashed #25272d;border-radius:26px;padding:22px;box-shadow:0 10px 24px rgba(80,67,170,.10);margin-bottom:16px;}
+    .teacher-card h3,.reflection-card h3{margin:0 0 12px;color:#4b35d1;font-size:1.28rem;}
+    .teacher-card ul{margin:0;padding-left:22px;color:#5b6a86;line-height:1.7;}
+    .reflection-card p{margin:0;color:#5b6a86;line-height:1.55;}
+    .flow-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:22px 0 0;}
+    .flow-strip span{background:#eaf8ff;border:3px solid #25272d;border-radius:18px;padding:12px;text-align:center;font-weight:900;color:#172036;box-shadow:3px 4px 0 #25272d;}
+    .workshop-note{background:#fff;border:4px dashed #25272d;border-radius:30px;padding:24px;margin:30px auto 0;max-width:1000px;text-align:center;}
+    .workshop-note h2{margin:0 0 14px;font-size:1.8rem;}
+    @media(max-width:900px){.mission-tabs{grid-template-columns:repeat(2,1fr)}.mission-layout{grid-template-columns:1fr}.mission-focus-card h2{font-size:2.1rem}.flow-strip{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:560px){.mission-tabs{grid-template-columns:1fr}.mission-focus-card{padding:22px}.mission-focus-top{flex-direction:column}.flow-strip{grid-template-columns:1fr}.mini-activity{grid-template-columns:1fr}.mission-focus-card h2{font-size:1.75rem}}
+  </style>
 </head>
 <body>
 <nav class="nav">
@@ -17,143 +59,128 @@
   <a href="aboutPage.html">About</a>
 </nav>
 
-<main class="page workshop-page workshop-detail-page">
+<main class="page workshop-page">
   <section class="workshop-hero">
     <p class="mini-label">4 week student-led kids workshop</p>
     <h1 class="section-title">Brain Explorer Missions</h1>
     <div class="color-strip"></div>
-    <p class="subtitle">Each week is a 40-minute mission: a quick story, a hands-on challenge, a game, and a small reflection. The goal is not to lecture kids — it is to let them explore.</p>
+    <p class="subtitle">Each week is a 40-minute mission. Kids learn a little, try something hands-on, play a game, and end with a small reflection.</p>
   </section>
 
-  <section class="mission-grid workshop-cards-overview">
-    <article class="mission-card mission-one">
-      <div class="mission-top"><span class="mission-pill">Mission 1</span><span class="mission-time">40 min</span></div>
-      <div class="mission-icon">🧠</div>
+  <section class="mission-tabs" aria-label="Workshop mission tabs">
+    <button class="mission-tab active" data-target="mission1"><small>Mission 1</small><strong>Meet Your Brain</strong><span>Brain parts + lobes</span></button>
+    <button class="mission-tab" data-target="mission2"><small>Mission 2</small><strong>Memory Lab</strong><span>Remembering tricks</span></button>
+    <button class="mission-tab" data-target="mission3"><small>Mission 3</small><strong>Focus & Sleep</strong><span>Brain recharge</span></button>
+    <button class="mission-tab" data-target="mission4"><small>Mission 4</small><strong>Music & Emotions</strong><span>Brain Olympics</span></button>
+  </section>
+
+  <section id="mission1" class="mission-panel active">
+    <article class="mission-focus-card">
+      <div class="mission-focus-top"><span class="mission-badge">Mission 1</span><span class="mission-min">40 min</span></div>
+      <div class="mission-emoji">🧠</div>
       <h2>Meet Your Brain</h2>
-      <p>Kids learn the major brain lobes by clicking, acting, drawing, and matching real-life actions.</p>
-      <ul>
-        <li>Where Am I? brain map game</li>
-        <li>Brain Superhero Factory</li>
-        <li>Brain Relay Game</li>
-        <li>My Brain Today reflection</li>
-      </ul>
-      <a class="mission-link" href="#mission1">See Mission 1 →</a>
+      <p class="big-idea">Kids learn the major brain lobes by clicking, acting, drawing, and matching real-life actions to different brain parts.</p>
+      <div class="flow-strip"><span>5 min warm-up</span><span>10 min brain map</span><span>15 min create/play</span><span>10 min reflection</span></div>
+      <div class="mission-layout">
+        <div class="activity-list">
+          <div class="mini-activity"><span class="num">01</span><div><h3>Where Am I?</h3><p>Use the clickable brain map. Kids hear examples like seeing a rainbow or hearing music and pick the brain area.</p></div></div>
+          <div class="mini-activity"><span class="num">02</span><div><h3>Brain Superhero Factory</h3><p>Draw one lobe as a superhero: Captain Frontal, Vision Hero, Sound Detective, or Sensation Explorer.</p></div></div>
+          <div class="mini-activity"><span class="num">03</span><div><h3>Brain Relay Game</h3><p>The leader reads a real-life scene. Kids hold up the lobe card and explain why they chose it.</p></div></div>
+          <div class="mini-activity"><span class="num">04</span><div><h3>My Brain Today</h3><p>Kids finish: “Today my ____ lobe helped me when I ____.” Drawing is allowed.</p></div></div>
+        </div>
+        <aside>
+          <div class="teacher-card"><h3>Supplies</h3><ul><li>Website brain map</li><li>Paper and markers</li><li>Simple lobe cards</li><li>Exit reflection sheet</li></ul></div>
+          <div class="reflection-card"><h3>Student reflection</h3><p>While studying for Brain Bee, I was surprised that the brain is not just one thinking machine. Every region has a job, and this mission explains that with examples from daily life.</p></div>
+        </aside>
+      </div>
     </article>
+  </section>
 
-    <article class="mission-card mission-two">
-      <div class="mission-top"><span class="mission-pill">Mission 2</span><span class="mission-time">40 min</span></div>
-      <div class="mission-icon">📚</div>
+  <section id="mission2" class="mission-panel">
+    <article class="mission-focus-card blue">
+      <div class="mission-focus-top"><span class="mission-badge">Mission 2</span><span class="mission-min">40 min</span></div>
+      <div class="mission-emoji">📚</div>
       <h2>Memory Lab</h2>
-      <p>Kids become memory detectives and test how grouping, pictures, and places help the brain remember.</p>
-      <ul>
-        <li>Mystery Tray Challenge</li>
-        <li>Chunking Magic</li>
-        <li>Memory Palace Drawing</li>
-        <li>Detective picture quiz</li>
-      </ul>
-      <a class="mission-link" href="#mission2">See Mission 2 →</a>
+      <p class="big-idea">Kids become memory detectives and test how grouping, pictures, places, and practice help the brain remember.</p>
+      <div class="flow-strip"><span>5 min story</span><span>10 min tray test</span><span>15 min memory tricks</span><span>10 min picture quiz</span></div>
+      <div class="mission-layout">
+        <div class="activity-list">
+          <div class="mini-activity"><span class="num">01</span><div><h3>Mystery Tray Challenge</h3><p>Show 12–15 objects for 30 seconds, hide them, and let kids write or draw what they remember.</p></div></div>
+          <div class="mini-activity"><span class="num">02</span><div><h3>Chunking Magic</h3><p>Compare a long number with groups like 483 — 927 — 561. Kids feel the difference quickly.</p></div></div>
+          <div class="mini-activity"><span class="num">03</span><div><h3>Memory Palace Drawing</h3><p>Kids draw a house or school and place objects in different rooms to remember them in order.</p></div></div>
+          <div class="mini-activity"><span class="num">04</span><div><h3>Detective Picture Quiz</h3><p>Use picture clues instead of word-only questions. Hints guide thinking but do not give the answer.</p></div></div>
+        </div>
+        <aside>
+          <div class="teacher-card"><h3>Supplies</h3><ul><li>12–15 small objects</li><li>Paper and pencil</li><li>Number cards</li><li>Quiz page</li></ul></div>
+          <div class="reflection-card"><h3>Student reflection</h3><p>One topic I enjoyed during Brain Bee preparation was memory. I liked learning that remembering is not magic — there are strategies we can practice.</p></div>
+        </aside>
+      </div>
     </article>
+  </section>
 
-    <article class="mission-card mission-three">
-      <div class="mission-top"><span class="mission-pill">Mission 3</span><span class="mission-time">40 min</span></div>
-      <div class="mission-icon">😴</div>
+  <section id="mission3" class="mission-panel">
+    <article class="mission-focus-card yellow">
+      <div class="mission-focus-top"><span class="mission-badge">Mission 3</span><span class="mission-min">40 min</span></div>
+      <div class="mission-emoji">😴</div>
       <h2>Focus, Sleep & Screens</h2>
-      <p>Kids test focus and learn why sleep, breaks, water, and less distraction help the brain learn.</p>
-      <ul>
-        <li>Spot-the-Difference focus game</li>
-        <li>Distraction experiment</li>
-        <li>Sleep Scientist flow</li>
-        <li>Brain Recharge checklist</li>
-      </ul>
-      <a class="mission-link" href="#mission3">See Mission 3 →</a>
+      <p class="big-idea">Kids test focus and learn why sleep, breaks, water, movement, and fewer distractions help the brain learn.</p>
+      <div class="flow-strip"><span>5 min check-in</span><span>10 min focus game</span><span>15 min experiment</span><span>10 min habit plan</span></div>
+      <div class="mission-layout">
+        <div class="activity-list">
+          <div class="mini-activity"><span class="num">01</span><div><h3>Spot-the-Difference Focus Game</h3><p>Kids compare two pictures and find small changes, then repeat with a distraction.</p></div></div>
+          <div class="mini-activity"><span class="num">02</span><div><h3>Distraction Experiment</h3><p>Try a short puzzle with background noise, then again quietly. Compare how the brain felt.</p></div></div>
+          <div class="mini-activity"><span class="num">03</span><div><h3>Sleep Scientist Flow</h3><p>Arrange cards: Learn → Sleep → Brain organizes → Memory saved. Keep it visual and simple.</p></div></div>
+          <div class="mini-activity"><span class="num">04</span><div><h3>Brain Recharge Checklist</h3><p>Kids create a checklist with sleep, water, movement, reading, and screen breaks.</p></div></div>
+        </div>
+        <aside>
+          <div class="teacher-card"><h3>Supplies</h3><ul><li>Spot-the-difference sheet</li><li>Timer</li><li>Sleep flow cards</li><li>Checklist worksheet</li></ul></div>
+          <div class="reflection-card"><h3>Student reflection</h3><p>I wanted this mission to connect neuroscience to daily life. Kids may not remember every term, but they can remember that their brain needs rest and breaks.</p></div>
+        </aside>
+      </div>
     </article>
+  </section>
 
-    <article class="mission-card mission-four">
-      <div class="mission-top"><span class="mission-pill">Mission 4</span><span class="mission-time">40 min</span></div>
-      <div class="mission-icon">🎵</div>
+  <section id="mission4" class="mission-panel">
+    <article class="mission-focus-card pink">
+      <div class="mission-focus-top"><span class="mission-badge">Mission 4</span><span class="mission-min">40 min</span></div>
+      <div class="mission-emoji">🎵</div>
       <h2>Music, Emotions & Brain Olympics</h2>
-      <p>Kids explore feelings, sound, reaction time, and finish with a fun Brain Explorer challenge.</p>
-      <ul>
-        <li>Music Detective</li>
-        <li>Color Your Feelings</li>
-        <li>Reaction Race</li>
-        <li>Brain Master Challenge</li>
-      </ul>
-      <a class="mission-link" href="#mission4">See Mission 4 →</a>
+      <p class="big-idea">Kids explore feelings, sound, reaction time, and finish with a fun Brain Explorer challenge.</p>
+      <div class="flow-strip"><span>5 min warm-up</span><span>10 min music lab</span><span>15 min brain games</span><span>10 min final quiz</span></div>
+      <div class="mission-layout">
+        <div class="activity-list">
+          <div class="mini-activity"><span class="num">01</span><div><h3>Music Detective</h3><p>Play short music clips. Kids guess the emotion: calm, happy, excited, or tense.</p></div></div>
+          <div class="mini-activity"><span class="num">02</span><div><h3>Color Your Feelings</h3><p>Kids build an emotion color wheel and connect feelings to body signals.</p></div></div>
+          <div class="mini-activity"><span class="num">03</span><div><h3>Reaction Race</h3><p>Use a ruler-drop test or simple reaction game. Kids compare reaction times.</p></div></div>
+          <div class="mini-activity"><span class="num">04</span><div><h3>Brain Master Challenge</h3><p>Final team quiz using pictures from all four missions. End with a Brain Explorer badge.</p></div></div>
+        </div>
+        <aside>
+          <div class="teacher-card"><h3>Supplies</h3><ul><li>Short music clips</li><li>Markers</li><li>Ruler or timer</li><li>Final quiz</li></ul></div>
+          <div class="reflection-card"><h3>Student reflection</h3><p>This final mission is meant to feel like a celebration. My goal is for kids to leave thinking, “My brain is doing cool things all the time.”</p></div>
+        </aside>
+      </div>
     </article>
   </section>
 
-  <section class="workshop-note teacher-flow">
-    <h2>Simple 40-minute flow for every week</h2>
-    <div class="flow-row">
-      <span>5 min warm-up</span>
-      <span>10 min learn</span>
-      <span>15 min activity</span>
-      <span>10 min game + reflection</span>
-    </div>
-    <p class="student-note">Student note: I wanted this to feel like a small science club, not a school lecture. Kids should click, draw, guess, move, laugh, and leave with one idea they can explain at home.</p>
-  </section>
-
-  <section id="mission1" class="mission-detail mission-detail-one">
-    <div class="detail-header">
-      <span class="week-badge">Week 1</span>
-      <h2>Mission 1: Meet Your Brain</h2>
-      <p>Big idea: Different parts of the brain help with different jobs, but they work together like a team.</p>
-    </div>
-    <div class="activity-grid">
-      <article class="activity-card"><span class="activity-number">01</span><h3>Where Am I?</h3><p>Kids click a brain map after hearing situations like “you see a rainbow,” “you hear music,” or “you decide what game to play.”</p><div class="tag-row"><span>Skill: Brain parts</span><span>Time: 10 min</span><span>Supplies: Website</span></div></article>
-      <article class="activity-card"><span class="activity-number">02</span><h3>Brain Superhero Factory</h3><p>Kids draw one lobe as a superhero: Captain Frontal, Vision Hero, Sound Detective, or Sensation Explorer.</p><div class="tag-row"><span>Skill: Creativity</span><span>Time: 10 min</span><span>Supplies: Paper</span></div></article>
-      <article class="activity-card"><span class="activity-number">03</span><h3>Brain Relay Game</h3><p>The leader reads a real-life scene. Kids raise the card for the lobe they think helped first, then explain why.</p><div class="tag-row"><span>Skill: Connecting ideas</span><span>Time: 10 min</span><span>Supplies: Lobe cards</span></div></article>
-      <article class="activity-card"><span class="activity-number">04</span><h3>My Brain Today</h3><p>Kids finish the sentence: “Today my ____ lobe helped me when I ____.” They can draw instead of writing.</p><div class="tag-row"><span>Skill: Reflection</span><span>Time: 10 min</span><span>Supplies: Worksheet</span></div></article>
-    </div>
-    <div class="reflection-box">Student reflection: While studying for Brain Bee, I was surprised that the brain is not just one “thinking machine.” Every region has a job, and this mission helps younger kids see that with examples from their own lives.</div>
-  </section>
-
-  <section id="mission2" class="mission-detail mission-detail-two">
-    <div class="detail-header">
-      <span class="week-badge">Week 2</span>
-      <h2>Mission 2: Memory Lab</h2>
-      <p>Big idea: Memory gets stronger when we group ideas, connect them to pictures, and review them in fun ways.</p>
-    </div>
-    <div class="activity-grid">
-      <article class="activity-card"><span class="activity-number">01</span><h3>Mystery Tray Challenge</h3><p>Show 12–15 objects for 30 seconds, hide them, and let kids write or draw what they remember.</p><div class="tag-row"><span>Skill: Memory</span><span>Time: 10 min</span><span>Supplies: Small objects</span></div></article>
-      <article class="activity-card"><span class="activity-number">02</span><h3>Chunking Magic</h3><p>Compare remembering a long number like 483927561 with groups like 483 — 927 — 561. Kids feel the difference quickly.</p><div class="tag-row"><span>Skill: Strategy</span><span>Time: 10 min</span><span>Supplies: Board/cards</span></div></article>
-      <article class="activity-card"><span class="activity-number">03</span><h3>Build a Memory Palace</h3><p>Kids draw their home or school and place items in different rooms to remember them in order.</p><div class="tag-row"><span>Skill: Visualization</span><span>Time: 10 min</span><span>Supplies: Paper</span></div></article>
-      <article class="activity-card"><span class="activity-number">04</span><h3>Detective Picture Quiz</h3><p>Use picture clues instead of only words. Kids answer how the brain can remember better without the hint giving away the answer.</p><div class="tag-row"><span>Skill: Recall</span><span>Time: 10 min</span><span>Supplies: Website quiz</span></div></article>
-    </div>
-    <div class="reflection-box">Student reflection: One topic I enjoyed during Brain Bee preparation was memory. I liked learning that remembering is not magic — there are strategies we can actually practice.</div>
-  </section>
-
-  <section id="mission3" class="mission-detail mission-detail-three">
-    <div class="detail-header">
-      <span class="week-badge">Week 3</span>
-      <h2>Mission 3: Focus, Sleep & Screens</h2>
-      <p>Big idea: The brain learns better when it has focus time, rest, movement, and fewer distractions.</p>
-    </div>
-    <div class="activity-grid">
-      <article class="activity-card"><span class="activity-number">01</span><h3>Spot-the-Difference Focus Game</h3><p>Kids compare two pictures and find small changes. Then they repeat with a distraction and compare the result.</p><div class="tag-row"><span>Skill: Attention</span><span>Time: 10 min</span><span>Supplies: Images</span></div></article>
-      <article class="activity-card"><span class="activity-number">02</span><h3>Distraction Experiment</h3><p>Kids try a short reading or puzzle with background noise, then again quietly. They discuss what changed.</p><div class="tag-row"><span>Skill: Focus</span><span>Time: 10 min</span><span>Supplies: Timer</span></div></article>
-      <article class="activity-card"><span class="activity-number">03</span><h3>Sleep Scientist Flow</h3><p>Kids arrange cards in order: Learn → Sleep → Brain organizes → Memory saved. Keep it visual and simple.</p><div class="tag-row"><span>Skill: Cause/effect</span><span>Time: 10 min</span><span>Supplies: Cards</span></div></article>
-      <article class="activity-card"><span class="activity-number">04</span><h3>Brain Recharge Checklist</h3><p>Kids create a checklist with sleep, water, movement, reading, and screen breaks. They pick one habit to try this week.</p><div class="tag-row"><span>Skill: Healthy habits</span><span>Time: 10 min</span><span>Supplies: Worksheet</span></div></article>
-    </div>
-    <div class="reflection-box">Student reflection: I wanted this mission to connect neuroscience to daily life. Kids may not remember every term, but they can remember that their brain needs rest and breaks.</div>
-  </section>
-
-  <section id="mission4" class="mission-detail mission-detail-four">
-    <div class="detail-header">
-      <span class="week-badge">Week 4</span>
-      <h2>Mission 4: Music, Emotions & Brain Olympics</h2>
-      <p>Big idea: Music, emotions, movement, and reaction time all show how fast and connected the brain is.</p>
-    </div>
-    <div class="activity-grid">
-      <article class="activity-card"><span class="activity-number">01</span><h3>Music Detective</h3><p>Play short music clips. Kids guess the emotion: calm, happy, excited, or tense — then explain what they noticed.</p><div class="tag-row"><span>Skill: Emotion</span><span>Time: 10 min</span><span>Supplies: Music clips</span></div></article>
-      <article class="activity-card"><span class="activity-number">02</span><h3>Color Your Feelings</h3><p>Kids build an emotion color wheel and connect feelings to body signals like heart rate, face, and posture.</p><div class="tag-row"><span>Skill: Self-awareness</span><span>Time: 10 min</span><span>Supplies: Markers</span></div></article>
-      <article class="activity-card"><span class="activity-number">03</span><h3>Reaction Race</h3><p>Use a ruler-drop test or simple online reaction game. Kids compare reaction times and talk about practice.</p><div class="tag-row"><span>Skill: Motor response</span><span>Time: 10 min</span><span>Supplies: Ruler/timer</span></div></article>
-      <article class="activity-card"><span class="activity-number">04</span><h3>Brain Master Challenge</h3><p>Final team quiz using pictures from all four missions. End with a Brain Explorer certificate or badge.</p><div class="tag-row"><span>Skill: Review</span><span>Time: 10 min</span><span>Supplies: Quiz</span></div></article>
-    </div>
-    <div class="reflection-box">Student reflection: This final mission is meant to feel like a celebration. My goal is for kids to leave thinking, “My brain is doing cool things all the time.”</div>
+  <section class="workshop-note">
+    <h2>Workshop style</h2>
+    <p>Quick story → hands-on challenge → game → reflection. No long lecture.</p>
   </section>
 </main>
 <footer class="footer">Designed as a 4-week student-led brain workshop.</footer>
+<script>
+  const tabs = document.querySelectorAll('.mission-tab');
+  const panels = document.querySelectorAll('.mission-panel');
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      panels.forEach(p => p.classList.remove('active'));
+      tab.classList.add('active');
+      const panel = document.getElementById(tab.dataset.target);
+      panel.classList.add('active');
+      panel.scrollIntoView({behavior:'smooth', block:'start'});
+    });
+  });
+</script>
 </body>
 </html>
