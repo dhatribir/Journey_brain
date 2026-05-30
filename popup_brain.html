@@ -1,77 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pop Up of Brain</title>
-    <link rel="stylesheet" href="styles/styles.css">
-
-</head>
-<body>
-<div class="nav">
-    <a href="index.html" class="nav-link home-button">Home</a>
-    <a href="popup_brain.html" class="nav-link" data-page="popup_brain.html">Pop Up of Brain</a>
-    <a href="facts.html" class="nav-link" data-page="facts.html">Facts</a>
-    <a href="quiz.html" class="nav-link" data-page="quiz.html">Quiz</a>
-    <a href="aboutPage.html" class="nav-link" data-page="aboutPage.html">About</a>
-</div>
-
-<div class="brain-container">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Lobes_of_the_brain_NL.svg/1280px-Lobes_of_the_brain_NL.svg.png" alt="Brain Diagram" class="brain-image">
-    <div id="frontal" class="lobe" data-lobe="Frontal Lobe"></div>
-    <div id="parietal" class="lobe" data-lobe="Parietal Lobe"></div>
-    <div id="temporal" class="lobe" data-lobe="Temporal Lobe"></div>
-    <div id="occipital" class="lobe" data-lobe="Occipital Lobe"></div>
-    <div id="info-box"></div>
-</div>
-
-
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const lobes = {
-                "Frontal Lobe": "The Frontal Lobe controls thinking, problem-solving, and body movement.",
-                "Parietal Lobe": "The Parietal Lobe processes touch, temperature, and spatial awareness.",
-                "Temporal Lobe": "The Temporal Lobe handles hearing, memory, and language comprehension.",
-                "Occipital Lobe": "The Occipital Lobe is responsible for vision and visual processing."
-            };
-
-            const infoBox = document.getElementById('info-box');
-
-            document.querySelectorAll('.lobe').forEach(lobe => {
-                lobe.addEventListener('click', function (event) {
-                    const lobeName = this.getAttribute('data-lobe');
-                    infoBox.innerHTML = `<h3>${lobeName}</h3><p>${lobes[lobeName]}</p>`;
-
-                    // Get the position of the clicked lobe
-                    const rect = this.getBoundingClientRect();
-                    const screenWidth = window.innerWidth;
-
-                    // Center the info box near the clicked lobe
-                    let leftPosition = rect.left + rect.width / 2 - infoBox.offsetWidth / 2;
-
-                    // Prevent info box from overflowing off-screen
-                    if (leftPosition + infoBox.offsetWidth > screenWidth - 20) {
-                        leftPosition = screenWidth - infoBox.offsetWidth - 20; // Adjust left to prevent overflow
-                    }
-                    if (leftPosition < 20) {
-                        leftPosition = 20; // Prevent overflow on left
-                    }
-
-                    infoBox.style.left = `${leftPosition}px`;
-                    infoBox.style.top = `${rect.top + rect.height + 10}px`;
-                    infoBox.style.display = 'block';
-                });
-            });
-
-            // Hide info box when clicking outside
-            document.addEventListener('click', function (event) {
-                if (!event.target.closest('.lobe') && !event.target.closest('#info-box')) {
-                    infoBox.style.display = 'none';
-                }
-            });
-        });
-
-    </script>
-</body>
-</html>
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Explore the Brain</title><link rel="stylesheet" href="styles/styles.css"></head><body><nav class="nav"><span class="logo">🧠 Journey</span><a  href="index.html">Start</a><a class="active" href="popup_brain.html">Explore</a><a  href="facts.html">Brain Facts</a><a  href="quiz.html">Quiz</a><a  href="workshops.html">Workshops</a><a  href="aboutPage.html">About</a></nav>
+<main class="page"><h1 class="section-title">Meet your amazing brain!</h1><p class="center mini-note">Click on each colored part of the brain to see where it is and what it does.</p><div class="color-strip"></div>
+<div class="brain-container"><div class="brain-lab"><aside id="info-box" class="info-card"><h2>Click a brain part</h2><p>Start by clicking one colorful area on the brain.</p><div class="try">Try it: Guess which part helps you see before clicking.</div><p class="student-note">How I made this: I used colors to remember each lobe first, then added the science names.</p></aside>
+<section class="brain-stage"><div class="brain-shape" aria-label="Clickable brain diagram"><div class="stem"></div><div class="cerebellum"></div><button class="lobe frontal active" onclick="showLobe('frontal')"><span class="label-dot">Frontal</span></button><button class="lobe parietal" onclick="showLobe('parietal')"><span class="label-dot">Parietal</span></button><button class="lobe temporal" onclick="showLobe('temporal')"><span class="label-dot">Temporal</span></button><button class="lobe occipital" onclick="showLobe('occipital')"><span class="label-dot">Occipital</span></button></div><p class="center mini-note">Tap or click a colored lobe. The selected part pops out.</p></section></div></div>
+<div class="activity"><h2>Mini challenge</h2><p>Point to your forehead and say: “This is where my decision-making helper is.” Then click the front pink area.</p></div><div class="cta-row"><a class="button" href="facts.html">Next: Brain facts →</a></div></main><footer class="footer">Keep going — facts are next.</footer>
+<script>
+const lobes={
+frontal:{name:'Frontal Lobe',emoji:'🩷',color:'pink',where:'Front of the brain, behind your forehead.',does:['Planning and decisions','Speaking and personality','Body movement'],memory:'Frontal = front office. It is like the brain’s team captain.',tryit:'Think about what you want for lunch. Your frontal lobe is helping you choose!'},
+parietal:{name:'Parietal Lobe',emoji:'💛',where:'Top-middle part of the brain.',does:['Touch and temperature','Body position','Knowing where things are around you'],memory:'Parietal = position. It helps you know where your body is.',tryit:'Close your eyes and touch your nose. Your parietal lobe helps with body position.'},
+temporal:{name:'Temporal Lobe',emoji:'💚',where:'Side area near your ears.',does:['Hearing','Memory','Understanding words and sounds'],memory:'Temporal is near your temples and ears, so I connect it with sounds.',tryit:'Listen to a clap or song. Your temporal lobe helps make sense of it.'},
+occipital:{name:'Occipital Lobe',emoji:'💙',where:'Back of the brain.',does:['Vision','Colors and shapes','Making sense of what your eyes see'],memory:'Occipital = optical. I remember it as the seeing helper.',tryit:'Look at something colorful. Your eyes send information, and this part helps understand it.'}
+};
+function showLobe(key){
+ document.querySelectorAll('.lobe').forEach(x=>x.classList.remove('active'));
+ document.querySelector('.'+key).classList.add('active');
+ const l=lobes[key];
+ document.getElementById('info-box').innerHTML=`<h2>${l.emoji} ${l.name}</h2><p><strong>Where is it?</strong> ${l.where}</p><p><strong>What does it help with?</strong></p><ul>${l.does.map(d=>`<li>${d}</li>`).join('')}</ul><div class="fun">💡 How I remember it: ${l.memory}</div><div class="try">Try it: ${l.tryit}</div>`;
+}
+showLobe('frontal');
+</script></body></html>

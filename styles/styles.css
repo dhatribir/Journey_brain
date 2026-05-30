@@ -1,327 +1,72 @@
-/* Global Styles */
-html, body {
-    height: 100vh; /* Use full height of the viewport */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: white; /* White background */
-    color: black; /* Black text */
+
+:root{
+  --cream:#fffaf0; --ink:#20242a; --soft:#5f6470;
+  --pink:#ff8fbc; --pink2:#ffd9e8; --yellow:#ffe878; --yellow2:#fff4b8;
+  --green:#8bd96b; --green2:#daf8c9; --blue:#73b7ff; --blue2:#dff0ff;
+  --purple:#b89cff; --purple2:#eee6ff; --orange:#ffb36b; --paper:#ffffff;
 }
+*{box-sizing:border-box} html{scroll-behavior:smooth}
+body{margin:0;font-family:"Comic Sans MS","Trebuchet MS",Arial,sans-serif;background:radial-gradient(circle at top left,#fff0f8,transparent 32%),radial-gradient(circle at top right,#e9f3ff,transparent 30%),linear-gradient(180deg,#fffaf0,#f8fbff);color:var(--ink);line-height:1.65}
+a{color:inherit}.nav{position:sticky;top:0;z-index:20;background:rgba(255,250,240,.94);backdrop-filter:blur(8px);border-bottom:3px solid #222;display:flex;gap:12px;justify-content:center;align-items:center;flex-wrap:wrap;padding:12px 14px}.nav a{text-decoration:none;padding:9px 14px;border-radius:16px;font-weight:900;color:#222}.nav a:hover,.nav a.active{background:var(--yellow2);box-shadow:0 4px 0 var(--pink);transform:rotate(-1deg)}
+.page{max-width:1120px;margin:0 auto;padding:28px 18px 70px}.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:center;min-height:72vh}.badge{display:inline-block;background:var(--pink2);border:3px solid #222;border-radius:999px;padding:7px 13px;font-weight:900;box-shadow:4px 4px 0 #222}.hero h1{font-size:clamp(2.5rem,7vw,5.5rem);line-height:.95;margin:18px 0 14px;letter-spacing:-1px}.subtitle{font-size:clamp(1.05rem,2vw,1.35rem);max-width:700px}.rainbow-title{background:linear-gradient(90deg,#ff5fa2,#7c61ff,#159bff,#4aac28,#ff9f1c);-webkit-background-clip:text;background-clip:text;color:transparent}.notebook{background:white;border:3px solid #222;border-radius:26px;box-shadow:10px 10px 0 #222;padding:24px;position:relative}.notebook:before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(transparent 0 31px,rgba(124,97,255,.13) 32px);border-radius:23px;pointer-events:none}.brain-doodle{font-size:7rem;text-align:center;animation:float 3s ease-in-out infinite}.cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}.button,button{border:3px solid #222;background:var(--yellow);box-shadow:5px 5px 0 #222;border-radius:16px;padding:12px 17px;font-weight:900;cursor:pointer;text-decoration:none;font-family:inherit}.button.secondary{background:var(--blue2)}button:hover,.button:hover{transform:translate(2px,2px);box-shadow:2px 2px 0 #222}.section-title{font-size:clamp(2rem,4vw,3.2rem);margin:18px 0 8px;text-align:center}.mini-note{color:var(--soft);font-size:1rem}.center{text-align:center}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:24px 0}.card{background:white;border:3px solid #222;border-radius:24px;padding:18px;box-shadow:6px 6px 0 #222;text-decoration:none}.card:nth-child(1){background:var(--pink2);transform:rotate(-.5deg)}.card:nth-child(2){background:var(--yellow2);transform:rotate(.5deg)}.card:nth-child(3){background:var(--green2);transform:rotate(-.3deg)}.card:nth-child(4){background:var(--blue2)}.card h3{margin-top:0}.journey{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.step{background:white;border:3px dashed #222;border-radius:22px;padding:16px}.bubble{width:48px;height:48px;border-radius:50%;background:var(--purple2);border:3px solid #222;display:grid;place-items:center;font-weight:900;box-shadow:3px 3px 0 #222}.activity{background:white;border:3px solid #222;border-left:12px solid var(--purple);padding:18px;border-radius:22px;margin:18px 0;box-shadow:5px 5px 0 #222}.kid-box{background:var(--yellow2);border:3px dashed #222;border-radius:22px;padding:20px;margin:20px 0}.fact-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}.fact{background:white;border:3px solid #222;border-radius:20px;padding:18px;box-shadow:5px 5px 0 #222}.fact:nth-child(odd){background:var(--blue2)}.fact:nth-child(even){background:var(--pink2)}.hidden{display:none}.quiz-container,.aboutcontainer,.brain-container,.container{max-width:1000px;margin:28px auto;padding:24px;background:white;border:3px solid #222;border-radius:28px;box-shadow:8px 8px 0 #222}.question{background:#fffdf7;border:3px dashed #d6cdbd;border-radius:18px;padding:15px;margin:15px 0}.question label{display:block;margin:8px 0;padding:9px;border-radius:12px}.question label:hover{background:var(--blue2)}#results,#result,#info{font-weight:900;margin-top:14px}.footer{border-top:3px solid #222;padding:24px;text-align:center;color:var(--soft);background:white}.workshop-plan{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.tiny{font-size:.9rem}.logo{font-size:1.35rem;font-weight:900;margin-right:12px}.sparkle{position:absolute;font-size:2rem;opacity:.65}.brain-lab{display:grid;grid-template-columns:340px 1fr;gap:24px;align-items:center}.brain-stage{position:relative;min-height:430px;background:linear-gradient(180deg,#fff,#f7f7ff);border:3px dashed #222;border-radius:28px;padding:22px;overflow:hidden}.brain-shape{position:relative;width:560px;max-width:100%;height:330px;margin:20px auto 0}.lobe{position:absolute;border:3px solid #222;box-shadow:4px 4px 0 rgba(0,0,0,.85);cursor:pointer;transition:.18s transform,.18s filter;display:grid;place-items:center;font-weight:900;text-align:center;color:#111}.lobe:hover,.lobe.active{transform:scale(1.04);filter:saturate(1.25) brightness(1.04)}.frontal{left:5%;top:18%;width:38%;height:58%;background:linear-gradient(#ff8fbc,#ff6ea9);border-radius:70% 38% 45% 65%}.parietal{left:36%;top:8%;width:36%;height:50%;background:linear-gradient(#ffe878,#ffd84f);border-radius:48% 60% 45% 35%}.temporal{left:30%;top:52%;width:43%;height:33%;background:linear-gradient(#9fe67d,#78d65d);border-radius:55% 35% 60% 40%}.occipital{right:2%;top:34%;width:26%;height:42%;background:linear-gradient(#73b7ff,#4b9df2);border-radius:35% 70% 65% 35%}.cerebellum{right:10%;bottom:3%;width:32%;height:22%;background:linear-gradient(#c38d5a,#9a6a45);border:3px solid #222;border-radius:50%;position:absolute;z-index:0}.stem{right:26%;bottom:-8%;width:12%;height:35%;background:#b1794a;border:3px solid #222;border-radius:18px;position:absolute;z-index:0}.lobe{z-index:1}.label-dot{font-size:.95rem;background:rgba(255,255,255,.65);padding:4px 8px;border-radius:999px}.info-card{background:white;border:3px solid #222;border-radius:24px;box-shadow:7px 7px 0 #222;padding:22px;min-height:320px}.info-card h2{font-size:2rem;margin:.2rem 0}.info-card ul{padding-left:24px}.fun{background:var(--purple2);border-radius:18px;padding:12px;margin-top:14px;border:2px dashed #6e55d8}.try{background:var(--yellow2);border-radius:18px;padding:12px;margin-top:12px;border:2px dashed #222}.student-note{color:#5d6470;font-weight:700}.color-strip{height:12px;border:3px solid #222;border-radius:999px;background:linear-gradient(90deg,var(--pink),var(--yellow),var(--green),var(--blue),var(--purple));box-shadow:3px 3px 0 #222;margin:12px auto 22px;max-width:420px}
+@keyframes float{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-10px) rotate(3deg)}}
+@media(max-width:900px){.hero,.brain-lab{grid-template-columns:1fr}.journey,.workshop-plan{grid-template-columns:repeat(2,1fr)}.cards,.fact-grid{grid-template-columns:1fr}.brain-stage{min-height:360px}.brain-shape{height:280px}.nav{justify-content:flex-start;overflow-x:auto;flex-wrap:nowrap}.nav a{white-space:nowrap;font-size:.95rem}.logo{display:none}}
+@media(max-width:560px){.page{padding:18px 12px 50px}.brain-doodle{font-size:5rem}.quiz-container,.aboutcontainer,.brain-container,.container{margin:16px 4px;padding:16px}.journey,.workshop-plan{grid-template-columns:1fr}.brain-shape{height:235px}.label-dot{font-size:.78rem;padding:3px 6px}.info-card{min-height:auto}.hero h1{font-size:3rem}}
 
-/* Background */
-.bg {
-    background-image: url('https://scitechdaily.com/images/Human-Brain-Memories-Neurons.jpg');
-    height: 100vh;
-    width: 100vw;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    transition: opacity 0.5s ease-in-out;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
+/* Visual quiz upgrade */
+.visual-question{padding:22px;margin:22px 0;background:linear-gradient(180deg,#fffdf7,#ffffff)}
+.question-top{display:flex;gap:14px;align-items:flex-start}.question-top h2{margin:.1rem 0 0;line-height:1.25}.question-number{width:48px;height:48px;border-radius:50%;background:var(--pink2);border:3px solid #222;box-shadow:3px 3px 0 #222;display:grid;place-items:center;font-weight:900;font-size:1.3rem;flex:0 0 auto}.quiz-scene{min-height:210px;border:3px solid #222;border-radius:24px;margin:18px 0;padding:18px;background:linear-gradient(135deg,#fef4ff,#eff8ff);display:flex;align-items:center;justify-content:center;gap:24px;position:relative;overflow:hidden;text-align:center}.quiz-scene p{position:absolute;left:16px;right:16px;bottom:8px;margin:0;font-weight:800;color:#596071}.big-emoji{font-size:5rem;filter:drop-shadow(4px 5px 0 rgba(0,0,0,.18))}.scale{font-size:3.2rem;animation:bounceSmall 1.8s ease-in-out infinite}.oxygen-scene{background:linear-gradient(135deg,#e8fbff,#fff8dc)}.mini-person{font-size:4.8rem}.oxygen-bubbles{display:flex;gap:8px;flex-wrap:wrap;max-width:190px}.oxygen-bubbles span{background:#dff0ff;border:3px solid #222;border-radius:50%;width:52px;height:52px;display:grid;place-items:center;font-weight:900;box-shadow:3px 3px 0 #222;animation:float 3s ease-in-out infinite}.oxygen-bubbles span:nth-child(2),.oxygen-bubbles span:nth-child(4){animation-delay:.4s}.scenario{font-size:4.4rem;background:#fff;border:3px dashed #222;border-radius:24px;padding:20px;box-shadow:5px 5px 0 rgba(0,0,0,.18)}.mini-brain-map{position:relative;width:300px;height:180px;max-width:45vw}.map-lobe{position:absolute;border:3px solid #222;box-shadow:3px 3px 0 #222;font-weight:900;display:grid;place-items:center}.map-lobe.f{left:0;top:35px;width:115px;height:95px;background:#ff8fbc;border-radius:65% 35% 45% 55%}.map-lobe.p{left:95px;top:15px;width:110px;height:85px;background:#ffe878;border-radius:50% 60% 45% 38%}.map-lobe.t{left:82px;top:94px;width:128px;height:68px;background:#8bd96b;border-radius:55% 35% 60% 40%}.map-lobe.o{right:0;top:65px;width:88px;height:82px;background:#73b7ff;border-radius:35% 70% 65% 35%}.map-lobe.glow{outline:7px solid rgba(255,255,255,.9);animation:pulseGlow 1s ease-in-out infinite}.sleep-scene{background:linear-gradient(135deg,#eee6ff,#fff4b8)}.sleep-kid{font-size:5.3rem;background:white;border:3px solid #222;border-radius:30px;padding:12px 18px;box-shadow:5px 5px 0 #222}.dream-bubble{background:white;border:3px dashed #222;border-radius:999px;padding:18px 22px;font-weight:900;box-shadow:4px 4px 0 rgba(0,0,0,.15)}.answers{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.answer-choice{background:white;text-align:left;box-shadow:4px 4px 0 #222}.answer-choice.selected{background:var(--blue2)}.answer-choice.correct{background:var(--green2);transform:translate(2px,2px);box-shadow:2px 2px 0 #222}.answer-choice.wrong{background:var(--pink2)}.feedback{font-weight:900;margin-top:14px;min-height:32px}.feedback span{color:#4a5568}.weight-scene{background:linear-gradient(135deg,#fff4b8,#ffd9e8)}
+@keyframes bounceSmall{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes pulseGlow{0%,100%{filter:brightness(1)}50%{filter:brightness(1.2)}}
+@media(max-width:700px){.quiz-scene{flex-direction:column;gap:10px;padding-bottom:58px}.mini-brain-map{max-width:100%;width:260px}.answers{grid-template-columns:1fr}.big-emoji,.scenario,.sleep-kid{font-size:3.5rem}.question-top{gap:10px}.question-number{width:40px;height:40px}}
+
+
+/* Fix: make picture clue clearly visible and not overlapping the images */
+.quiz-scene{
+  min-height: 250px;
+  padding: 24px 22px 70px;
+  border: 3px solid #222;
+  overflow: visible;
 }
-
-/* Navigation Bar */
-/* Ensure the navigation bar stays fixed on top */
-/* Ensure navigation bar is always visible */
-.nav {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.9);
-    padding: 15px 0;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    z-index: 1000; /* Keeps it above everything */
+.quiz-scene p{
+  position: absolute;
+  left: 24px;
+  right: 24px;
+  bottom: 20px;
+  margin: 0;
+  padding: 8px 12px;
+  border-radius: 14px;
+  background: rgba(255,255,255,.78);
+  color: #4f46a5;
+  font-size: 1.08rem;
+  font-weight: 900;
+  line-height: 1.25;
+  z-index: 5;
+  text-shadow: none;
 }
-
-
-.nav a {
-    color: white;
-    text-decoration: none;
-    padding: 10px 15px;
-    font-size: 20px;
-    font-weight: bold;
-    display: inline-block;
-    transition: transform 0.3s ease, background-color 0.3s ease;
+.sleep-scene{
+  gap: 34px;
+  background: linear-gradient(135deg,#f1e7ff,#fff2b5);
 }
-
-.nav a:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-    transform: scale(1.1);
+.sleep-scene .big-emoji,
+.sleep-scene .sleep-kid,
+.sleep-scene .dream-bubble{
+  margin-bottom: 28px;
 }
-
-/* Content Area */
-.content {
-    margin-top: 80px;
-    padding: 20px;
-    max-width: 900px;
-    color: white;
-    text-align: center;
-    font-size: 1.2em;
-    transition: opacity 0.5s ease-in-out;
+.sleep-kid{
+  min-width: 115px;
+  min-height: 115px;
+  display: grid;
+  place-items: center;
 }
-
-/* Typing Effect */
-.typed-text {
-    font-size: 24px;
-    text-align: center;
-    max-width: 70%;
-    background-color: rgba(0, 0, 0, 0.6);
-    padding: 20px;
-    border-radius: 10px;
-    min-height: 120px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+.dream-bubble{
+  color:#242833;
+  background:#fff;
 }
-
-/* Page Specific Styling */
-.fact-container, .quiz-container, .brain-container , .aboutcontainer{
-    color: black;
-    padding: 57px;
-    border-radius: 10px;
-   
-}
-
-/* Mobile-friendly Navigation */
-@media (max-width: 768px) {
-     .about-container {
-        margin-top: 80px;  
-        width: 90%;
-       
-        text-align: center;
-        font-size: 1em;
-    }
-
-    h1 {
-        font-size: 1.8em; /* Slightly larger but fits mobile */
-    }
-
-    p {
-        font-size: 1em;
-        line-height: 1.5;
-    }
-    .nav {
-        display: flex;
-        flex-direction: row; /* Keep items in one row */
-        flex-wrap: wrap;
-        justify-content: center;
-        background-color: rgba(0, 0, 0, 0.8);
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        padding: 10px 0;
-        z-index: 1000;
-    }
-
-    .nav a {
-        font-size: 14px; /* Make text smaller */
-        padding: 8px 12px;
-        text-align: center;
-        color: white;
-        text-decoration: none;
-    }
-
-    /* Fix overlap issue */
-    .typed-text {
-        margin-top: 80px; /* Push text down */
-        font-size: 1em;
-        text-align: center;
-        padding: 10px;
-    }
-   
-
-    /* Fix Navbar Overlap */
-    .content {
-        top: 100%; /* Push down the content below the navbar */
-    }
-
-    /* Adjust Fact Cards */
-    .fact-container {
-         margin-top: 55%;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center; /* Center align facts */
-        gap: 10px; /* Add space between facts */
-        padding: 10px;
-    }
-    .fact-container, .quiz-container, .brain-container, .aboutcontainer {
-    color: black;
-    padding-top: 90px;
-    border-radius: 10px;
-     margin-top: 55%;
-        top: 100%;
-    }
-
-    .fact {
-        
-        width: 90%; /* Make facts wider for better readability */
-        padding: 15px;
-        text-align: center; /* Center text for better mobile view */
-        font-size: 1.1em;
-    }
-
-    /* Fix Button Spacing */
-    #showMore {
-        width: 100%;
-        max-width: 300px;
-        margin: 20px auto;
-        display: block;
-    }
-
-
-    
-     .quiz-container {
-        margin-top: 55%;
-        width: 90%;
-       
-        padding: 15px;
-    }
-
-    .question {
-        font-size: 1em; /* Reduce text size for better spacing */
-    }
-
-    /* Improve Spacing of Radio Buttons */
-    .question label {
-        display: block;
-        font-size: 1em;
-        margin-bottom: 8px;
-    }
-
-    /* Reduce Size of Quiz Header */
-    h1, h2 {
-        font-size: 1.5em; /* Prevent overflow on smaller screens */
-        text-align: center;
-    }
-}
-
-
-/* Brain Container */
-.brain-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 90vh;
-    overflow: hidden;
-}
-
-.brain-image {
-    max-width: 75%;
-    max-height: 85vh;
-    object-fit: contain;
-}
-
-/* Positioning Brain Lobes */
-.lobe {
-    position: absolute;
-    cursor: pointer;
-    background-color: rgba(255, 255, 255, 0.2);
-    transition: background-color 0.3s;
-    border: 2px solid rgb(0 0 0 / 23%);
-    border-radius: 50%;
-}
-
-.lobe:hover {
-    background-color: rgba(255, 255, 255, 0.4);
-}
-
-/* Adjusting Positioning for Each Lobe */
-#frontal { top: 25%; left: 28%; width: 12%; height: 18%; }
-#parietal { top: 15%; right: 30%; width: 12%; height: 18%; }
-#temporal { top: 60%; left: 42%; width: 12%; height: 15%; }
-#occipital { top: 52%; right: 25%; width: 10%; height: 14%; }
-
-/* Info Box Fix */
-/* Info Box Styling */
-#info-box {
-    position: absolute;
-    background-color: rgba(255, 255, 255, 0.95);
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    padding: 15px;
-    width: 280px; /* Set a fixed width */
-    max-width: 90%; /* Prevent it from being too wide on small screens */
-    text-align: center;
-    display: none;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    transition: all 0.3s ease-in-out;
-}
-
-
-/* Fact container: Adjust size to fit all items */
-.fact-container {
-    display: grid;
-    gap: 10px;
-    max-width: 80%;
-    text-align: center;
-    margin-top: 55%; /* Add space below navbar */
-}
-/* Fact box: Reduce padding & margins */
-.fact {
-    background-color: rgba(240, 240, 240, 0.9);
-    color: black;
-    border-left: 3px solid #8E54E9;
-    padding: 10px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    font-size: 1em; /* Reduce font size */
-}
-
-h1 {
-    font-size: 2.5em;
-    text-align: center;
-    margin-top: 90px; /* Add margin so it’s not hidden under navbar */
-    font-weight: bold;
-}
-
-/* Trivia & Quiz: Adjust size */
-#trivia, #quiz {
-    width: 80%;
-    padding: 10px;
-    font-size: 1em;
-}
-
-#result {
-    font-weight: bold;
-    margin-top: 10px;
-    text-align: center;
-    font-size: 1.2em;
-}
-
-/* Button Styling */
-button {
-    background-color: #5490e9;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 25px;
-    cursor: pointer;
-    font-size: 1.2em;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    box-shadow: 0 2px 5px rgba(255, 255, 255, 0.2);
-}
-
-button:hover {
-    background-color: #3a7bd5;
-    transform: scale(1.05);
-}
-
-.about {
-    padding: 20px;
-    max-width: 900px;
-    text-align: center;
-    font-size: 1.2em;
-    transition: opacity 0.5s ease-in-out;
-}
-.hidden {
-    display: none;
+@media(max-width:700px){
+  .quiz-scene{padding:18px 14px 82px; min-height: 300px;}
+  .quiz-scene p{bottom:18px; left:14px; right:14px; font-size:1rem;}
+  .sleep-scene .big-emoji,
+  .sleep-scene .sleep-kid,
+  .sleep-scene .dream-bubble{margin-bottom:6px;}
 }

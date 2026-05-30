@@ -1,126 +1,236 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brain Quiz</title>
-    <link rel="stylesheet" href="styles/styles.css">
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brain Quiz</title>
+  <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
-<div class="nav">
-    <a href="index.html" class="nav-link" data-page="home.html">Home</a>
-    <a href="popup_brain.html" class="nav-link" data-page="popup_brain.html">Pop Up of Brain</a>
-    <a href="facts.html" class="nav-link" data-page="facts.html">Facts</a>
-    <a href="quiz.html" class="nav-link" data-page="quiz.html">Quiz</a>
-    <a href="aboutPage.html" class="nav-link" data-page="aboutPage.html">About</a>
-</div>
-
-<div class="quiz-container">
-
-
-    <h1>Brain Quiz</h1>
-
-        <div id="quiz">
-            <div class="question">
-                <h2>1. What is the approximate weight of an adult human brain?</h2>
-                <label><input type="radio" name="q1" value="a"> a) 0.5 kg</label>
-                <label><input type="radio" name="q1" value="b"> b) 1.0 kg</label>
-                <label><input type="radio" name="q1" value="c"> c) 1.4 kg</label>
-                <label><input type="radio" name="q1" value="d"> d) 2.0 kg</label>
-            </div>
-
-            <div class="question">
-                <h2>2. What percentage of the body's total oxygen does the brain use?</h2>
-                <label><input type="radio" name="q2" value="a"> a) 5%</label>
-                <label><input type="radio" name="q2" value="b"> b) 10%</label>
-                <label><input type="radio" name="q2" value="c"> c) 20%</label>
-                <label><input type="radio" name="q2" value="d"> d) 30%</label>
-            </div>
-
-            <div class="question">
-                <h2>3. How many thoughts can the human brain generate per day?</h2>
-                <label><input type="radio" name="q3" value="a"> a) About 10,000</label>
-                <label><input type="radio" name="q3" value="b"> b) About 30,000</label>
-                <label><input type="radio" name="q3" value="c"> c) About 50,000</label>
-                <label><input type="radio" name="q3" value="d"> d) About 70,000</label>
-            </div>
-
-            <div class="question">
-                <h2>4. At what average speed does information travel in your brain?</h2>
-                <label><input type="radio" name="q4" value="a"> a) 68 mph (109 km/h)</label>
-                <label><input type="radio" name="q4" value="b"> b) 168 mph (270 km/h)</label>
-                <label><input type="radio" name="q4" value="c"> c) 268 mph (431 km/h)</label>
-                <label><input type="radio" name="q4" value="d"> d) 368 mph (592 km/h)</label>
-            </div>
-
-            <div class="question">
-                <h2>5. What percentage of the body's total energy does the brain consume?</h2>
-                <label><input type="radio" name="q5" value="a"> a) 5%</label>
-                <label><input type="radio" name="q5" value="b"> b) 10%</label>
-                <label><input type="radio" name="q5" value="c"> c) 20%</label>
-                <label><input type="radio" name="q5" value="d"> d) 30%</label>
-            </div>
-        </div>
-
-        <button onclick="submitQuiz()">Submit Quiz</button>
-
-        <div id="results"></div>
-        <button onclick="tryAgain()" style="display: none;">Try Again!</button>
-
+<nav class="nav"><span class="logo">🧠 Journey</span><a href="index.html">Start</a><a href="popup_brain.html">Explore</a><a href="facts.html">Brain Facts</a><a class="active" href="quiz.html">Quiz</a><a href="workshops.html">Workshops</a><a href="aboutPage.html">About</a></nav>
+<main class="page">
+  <div class="quiz-container">
+    <h1 class="section-title">Step 3: Brain quiz</h1>
+    <div class="color-strip"></div>
+    <p class="mini-note">No pressure. Look at the picture first, then choose your answer. Correct answers play a tiny happy tune 🎵</p>
+    <div id="quiz"></div>
+    <div class="cta-row">
+      <button onclick="submitQuiz()">Check my score</button>
+      <button onclick="tryAgain()">Try again</button>
     </div>
+    <div id="results"></div>
+  </div>
+  <div class="cta-row"><a class="button" href="workshops.html">Next: Turn it into a workshop →</a></div>
+</main>
+<footer class="footer">Mistakes are proof your brain is working.</footer>
+<script>
+const questionBank = [
+  {
+    q: 'Which object is closest to the weight of an adult human brain?',
+    scene: 'weight',
+    hint: 'Think of something small enough to hold in one hand, but heavier than an apple.',
+    explain: 'An adult human brain is about 1.4 kg, close to a small pineapple.',
+    options: ['Apple', 'Pineapple', 'Watermelon', 'Basketball'],
+    answer: 'Pineapple'
+  },
+  {
+    q: 'Your brain works really hard. About how much of your body’s oxygen does it use?',
+    scene: 'oxygen',
+    hint: 'It is more than a tiny amount, but not half of your oxygen.',
+    explain: 'Your brain uses about 20% of your body’s oxygen.',
+    options: ['5%', '10%', '20%', '50%'],
+    answer: '20%'
+  },
+  {
+    q: 'This child is looking at a rainbow. Which lobe helps with seeing?',
+    scene: 'vision',
+    hint: 'Look at the brain map and think about which area is used for sight.',
+    explain: 'The occipital lobe helps process vision.',
+    options: ['Frontal', 'Parietal', 'Temporal', 'Occipital'],
+    answer: 'Occipital'
+  },
+  {
+    q: 'This child is listening to music. Which lobe helps with hearing sounds?',
+    scene: 'music',
+    hint: 'Think about the part of the brain that works when your ears send sound signals.',
+    explain: 'The temporal lobe helps with hearing and sound processing.',
+    options: ['Frontal', 'Temporal', 'Occipital', 'Parietal'],
+    answer: 'Temporal'
+  },
+  {
+    q: 'This student is sleeping after learning something new. What helps memories stick?',
+    scene: 'sleep',
+    hint: 'Think about what your body needs after a busy learning day.',
+    explain: 'Sleep helps your brain sort and store memories.',
+    options: ['Never sleeping', 'Sleep', 'Skipping water', 'Only sugar'],
+    answer: 'Sleep'
+  },
+  {
+    q: 'This child is choosing between two snacks. Which lobe helps with decisions?',
+    scene: 'decision',
+    hint: 'Think about the part that helps you pause, plan, and choose.',
+    explain: 'The frontal lobe helps with planning and decision making.',
+    options: ['Frontal', 'Temporal', 'Occipital', 'Parietal'],
+    answer: 'Frontal'
+  },
+  {
+    q: 'This child touches a cold ice cube. Which lobe helps understand touch?',
+    scene: 'touch',
+    hint: 'Think about the brain area that helps you notice touch, pressure, and body position.',
+    explain: 'The parietal lobe helps process touch and body position.',
+    options: ['Frontal', 'Parietal', 'Temporal', 'Occipital'],
+    answer: 'Parietal'
+  },
+  {
+    q: 'Your brain sends messages through special cells. What are they called?',
+    scene: 'neurons',
+    hint: 'They are tiny message-carrying cells inside your nervous system.',
+    explain: 'Neurons are nerve cells that send messages through the brain and body.',
+    options: ['Neurons', 'Bones', 'Muscles', 'Teeth'],
+    answer: 'Neurons'
+  },
+  {
+    q: 'This child is balancing on one foot. Which part helps with balance?',
+    scene: 'balance',
+    hint: 'Look for the small lower back part of the brain in the diagram.',
+    explain: 'The cerebellum helps with balance and coordination.',
+    options: ['Cerebellum', 'Occipital lobe', 'Lungs', 'Heart'],
+    answer: 'Cerebellum'
+  },
+  {
+    q: 'Which habit is best for helping your brain stay ready to learn?',
+    scene: 'healthy',
+    hint: 'Choose the habit that gives your brain steady energy and rest.',
+    explain: 'Sleep, water, and healthy food all help your brain learn better.',
+    options: ['Sleep, water, and healthy food', 'No sleep', 'Only candy', 'Never taking breaks'],
+    answer: 'Sleep, water, and healthy food'
+  }
+];
 
-    <script>
-        const answers = ['c', 'c', 'd', 'c', 'c'];
-        const answerTexts = [
-            '1.4 kg',
-            '20%',
-            'About 70,000',
-            '268 mph (431 km/h)',
-            '20%'
-        ];
+const sceneHTML = {
+  weight: `<div class="quiz-scene weight-scene" aria-label="Brain and objects for weight comparison">
+      <div class="big-emoji">🧠</div><div class="scale">⚖️</div><div class="object-row"><span>🍎</span><span>🍍</span><span>🍉</span><span>🏀</span></div>
+      <p>Picture clue: compare the brain with everyday objects.</p>
+    </div>`,
+  oxygen: `<div class="quiz-scene oxygen-scene" aria-label="Brain using oxygen bubbles">
+      <div class="mini-person">🧒</div><div class="oxygen-bubbles"><span>O₂</span><span>O₂</span><span>O₂</span><span>O₂</span><span>O₂</span></div><div class="big-emoji">🧠</div>
+      <p>Your brain is small compared to your body, but it works super hard.</p>
+    </div>`,
+  vision: `<div class="quiz-scene brain-question-scene" aria-label="Child seeing a rainbow and brain diagram">
+      <div class="scenario">👧 🌈 👀</div><div class="mini-brain-map"><span class="map-lobe f">F</span><span class="map-lobe p">P</span><span class="map-lobe t">T</span><span class="map-lobe o">O</span></div>
+      <p>Picture clue: this question is about seeing.</p>
+    </div>`,
+  music: `<div class="quiz-scene brain-question-scene" aria-label="Child listening to music and brain diagram">
+      <div class="scenario">🎧 🧒 🎶</div><div class="mini-brain-map"><span class="map-lobe f">F</span><span class="map-lobe p">P</span><span class="map-lobe t">T</span><span class="map-lobe o">O</span></div>
+      <p>Picture clue: this question is about hearing sounds.</p>
+    </div>`,
+  sleep: `<div class="quiz-scene sleep-scene" aria-label="Student sleeping while memories organize">
+      <div class="big-emoji">📚</div><div class="sleep-kid">😴</div><div class="dream-bubble">learning day</div>
+      <p>Picture clue: Think about what your body needs after a busy learning day.</p>
+    </div>`,
+  decision: `<div class="quiz-scene decision-scene" aria-label="Child deciding between snacks">
+      <div class="scenario">🍎 🤔 🧒 🍦</div><div class="mini-brain-map"><span class="map-lobe f">F</span><span class="map-lobe p">P</span><span class="map-lobe t">T</span><span class="map-lobe o">O</span></div>
+      <p>Picture clue: this question is about choosing and planning.</p>
+    </div>`,
+  touch: `<div class="quiz-scene touch-scene" aria-label="Child touching an ice cube">
+      <div class="scenario">🧒 👉 🧊</div><div class="mini-brain-map"><span class="map-lobe f">F</span><span class="map-lobe p">P</span><span class="map-lobe t">T</span><span class="map-lobe o">O</span></div>
+      <p>Picture clue: this question is about touch and body feelings.</p>
+    </div>`,
+  neurons: `<div class="quiz-scene neuron-scene" aria-label="Neuron message diagram">
+      <div class="neuron-line"><span>🧠</span><span class="spark">⚡</span><span>➡️</span><span class="spark">⚡</span><span>✋</span></div>
+      <p>Picture clue: brain messages travel through tiny special cells.</p>
+    </div>`,
+  balance: `<div class="quiz-scene balance-scene" aria-label="Child balancing and brain diagram">
+      <div class="scenario">🧒 🦶 ⚖️</div><div class="mini-brain-map cerebellum-map"><span class="map-lobe f">F</span><span class="map-lobe p">P</span><span class="map-lobe t">T</span><span class="map-lobe o">O</span><span class="map-lobe c">C</span></div>
+      <p>Picture clue: this question is about balance and coordination.</p>
+    </div>`,
+  healthy: `<div class="quiz-scene healthy-scene" aria-label="Brain healthy habits">
+      <div class="object-row"><span>💧</span><span>🥗</span><span>😴</span><span>🏃</span></div><div class="big-emoji">🧠</div>
+      <p>Picture clue: your brain likes good fuel, rest, and movement.</p>
+    </div>`
+};
 
-        function submitQuiz() {
-            let score = 0;
-            let results = '';
+let questions = [];
+const quiz = document.getElementById('quiz');
 
-            for (let i = 1; i <= 5; i++) {
-                const selected = document.querySelector(`input[name="q${i}"]:checked`);
-                const questionElement = document.querySelector(`#quiz div:nth-child(${i})`);
-                
-                if (selected) {
-                    if (selected.value === answers[i-1]) {
-                        score++;
-                        results += `<p class="correct">Question ${i}: Correct! The answer is ${answerTexts[i-1]}.</p>`;
-                    } else {
-                        results += `<p class="incorrect">Question ${i}: Incorrect. The correct answer is ${answerTexts[i-1]}.</p>`;
-                    }
-                } else {
-                    results += `<p class="incorrect">Question ${i}: Not answered. The correct answer is ${answerTexts[i-1]}.</p>`;
-                }
-            }
+function shuffle(array){
+  const a = [...array];
+  for(let i=a.length-1; i>0; i--){
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
 
-            const percentage = (score / 5) * 100;
-            results = `<h2>Your Results:</h2>
-                       <p>You scored ${score} out of 5 (${percentage}%)</p>
-                       ${results}`;
-            
-            document.getElementById('results').innerHTML = results;
-            document.getElementById('quiz').style.display = 'none';
-            document.querySelector('button').style.display = 'none';
-            document.querySelector('button[onclick="tryAgain()"]').style.display = 'block';
-        }
+function newQuiz(){
+  questions = shuffle(questionBank).slice(0, 5).map(q => {
+    const options = shuffle(q.options);
+    return {...q, options, answerIndex: options.indexOf(q.answer)};
+  });
+}
 
-        function tryAgain() {
-            document.getElementById('results').innerHTML = '';
-            document.getElementById('quiz').style.display = 'block';
-            document.querySelector('button').style.display = 'block';
-            document.querySelector('button[onclick="tryAgain()"]').style.display = 'none';
-            
-            // Reset all radio buttons
-            const radioButtons = document.querySelectorAll('input[type="radio"]');
-            radioButtons.forEach(button => button.checked = false);
-        }
-    </script>
+function render(){
+  newQuiz();
+  quiz.innerHTML = questions.map((x,i)=>`
+    <div class="question visual-question" id="card${i}">
+      <div class="question-top">
+        <div class="question-number">${i+1}</div>
+        <h2>${x.q}</h2>
+      </div>
+      ${sceneHTML[x.scene]}
+      <div class="answers">
+        ${x.options.map((a,j)=>`<button class="answer-choice" type="button" onclick="chooseAnswer(${i},${j}, this)">${a}</button>`).join('')}
+      </div>
+      <div class="feedback" id="feedback${i}"></div>
+    </div>`).join('');
+  document.getElementById('results').innerHTML='<p class="mini-note">Refresh or click “Try again” to get a new mix of questions.</p>';
+}
+render();
+
+function happyTune(){
+  try{
+    const ctx = new (window.AudioContext || window.webkitAudioContext)();
+    const notes = [523.25, 659.25, 783.99, 1046.5];
+    notes.forEach((freq, index)=>{
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = 'sine';
+      osc.frequency.value = freq;
+      osc.connect(gain); gain.connect(ctx.destination);
+      const start = ctx.currentTime + index * 0.11;
+      gain.gain.setValueAtTime(0.0001, start);
+      gain.gain.exponentialRampToValueAtTime(0.16, start + 0.02);
+      gain.gain.exponentialRampToValueAtTime(0.0001, start + 0.10);
+      osc.start(start); osc.stop(start + 0.12);
+    });
+  }catch(e){ /* no sound if browser blocks it */ }
+}
+
+function chooseAnswer(i,j,btn){
+  const card = document.getElementById(`card${i}`);
+  const feedback = document.getElementById(`feedback${i}`);
+  card.dataset.selected = j;
+  card.querySelectorAll('.answer-choice').forEach(b=>b.classList.remove('selected','correct','wrong'));
+  btn.classList.add('selected');
+  if(j === questions[i].answerIndex){
+    btn.classList.add('correct');
+    feedback.innerHTML = `🎉 Yay! Correct. <span>${questions[i].explain}</span>`;
+    happyTune();
+  } else {
+    btn.classList.add('wrong');
+    feedback.innerHTML = `🤔 Good try. Hint: ${questions[i].hint}`;
+  }
+}
+
+function submitQuiz(){
+  let score = 0;
+  questions.forEach((x,i)=>{
+    const selected = Number(document.getElementById(`card${i}`).dataset.selected);
+    if(selected === x.answerIndex) score++;
+  });
+  document.getElementById('results').innerHTML = `<h2>You got ${score}/${questions.length}</h2><p>${score===questions.length?'Amazing! You are ready to teach someone else.':'Nice try. Use the picture clues and try a new quiz.'}</p>`;
+}
+function tryAgain(){render(); window.scrollTo({top:0, behavior:'smooth'});}
+</script>
 </body>
 </html>
