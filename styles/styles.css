@@ -70,3 +70,208 @@ a{color:inherit}.nav{position:sticky;top:0;z-index:20;background:rgba(255,250,24
   .sleep-scene .sleep-kid,
   .sleep-scene .dream-bubble{margin-bottom:6px;}
 }
+
+/* 4-week workshop mission page */
+.workshop-page { background: linear-gradient(135deg, #f6f1ff 0%, #fffaf0 52%, #eef9ff 100%); }
+.workshop-hero { text-align: center; margin-bottom: 26px; }
+.mini-label { display:inline-block; background:#efe7ff; color:#4b35d1; font-weight:800; padding:10px 18px; border-radius:999px; margin-bottom:10px; }
+.mission-grid { display:grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap:24px; max-width:1180px; margin:0 auto; }
+.mission-card { position:relative; overflow:hidden; background:#fff; border:4px solid rgba(72,52,212,.10); border-radius:28px; padding:28px; box-shadow:0 16px 35px rgba(80, 67, 170, .10); min-height:355px; }
+.mission-card:before { content:""; position:absolute; inset:0; background:radial-gradient(circle at top right, rgba(255,221,120,.35), transparent 34%); pointer-events:none; }
+.mission-top { display:flex; justify-content:space-between; align-items:center; gap:12px; position:relative; z-index:1; }
+.mission-pill { background:#eee7ff; color:#4b35d1; font-weight:900; padding:10px 20px; border-radius:999px; font-size:1.05rem; }
+.mission-time { color:#4b35d1; font-weight:900; font-size:1.1rem; }
+.mission-icon { font-size:2.5rem; margin-top:20px; }
+.mission-card h2 { font-size:2rem; margin:12px 0 12px; color:#172036; }
+.mission-card p { font-size:1.08rem; line-height:1.55; color:#5b6a86; }
+.mission-card ul { margin:18px 0; padding-left:24px; color:#5b6a86; font-size:1.03rem; line-height:1.65; }
+.mission-link { display:inline-block; margin-top:8px; font-weight:900; color:#4b35d1; text-decoration:none; font-size:1.08rem; }
+.mission-one { border-color:#eadfff; }
+.mission-two { border-color:#dff2ff; }
+.mission-three { border-color:#fff0c7; }
+.mission-four { border-color:#ffd9ea; }
+.workshop-note { max-width:1180px; margin:28px auto 0; background:#fff; border:3px dashed #cfc6e8; border-radius:28px; padding:26px; box-shadow:0 12px 28px rgba(80, 67, 170, .08); }
+.workshop-note h2 { margin-top:0; color:#172036; }
+.flow-row { display:grid; grid-template-columns:repeat(4, 1fr); gap:12px; margin:18px 0; }
+.flow-row span { background:#f8f2ff; color:#4b35d1; border-radius:18px; padding:14px; text-align:center; font-weight:800; }
+.student-note { color:#5b6a86; font-size:1.05rem; }
+@media (max-width: 800px) { .mission-grid { grid-template-columns:1fr; } .flow-row { grid-template-columns:1fr 1fr; } .mission-card { min-height:auto; } }
+@media (max-width: 520px) { .flow-row { grid-template-columns:1fr; } .mission-card h2 { font-size:1.55rem; } }
+
+/* Detailed 4-week workshop curriculum */
+.workshop-detail-page { max-width: 1220px; }
+.workshop-cards-overview { margin-bottom: 34px; }
+.teacher-flow { margin-bottom: 34px; }
+.mission-detail {
+  margin: 34px auto;
+  padding: 28px;
+  border-radius: 32px;
+  background: rgba(255,255,255,.78);
+  border: 4px solid #eee7ff;
+  box-shadow: 0 18px 40px rgba(72, 52, 212, .10);
+}
+.mission-detail-one { border-color:#eadfff; background:linear-gradient(135deg,#fff,#fbf7ff); }
+.mission-detail-two { border-color:#dff2ff; background:linear-gradient(135deg,#fff,#f4fbff); }
+.mission-detail-three { border-color:#fff0c7; background:linear-gradient(135deg,#fff,#fffaf0); }
+.mission-detail-four { border-color:#ffd9ea; background:linear-gradient(135deg,#fff,#fff5fa); }
+.detail-header { text-align:center; max-width:850px; margin:0 auto 24px; }
+.week-badge {
+  display:inline-block;
+  background:#eee7ff;
+  color:#4b35d1;
+  font-weight:900;
+  border-radius:999px;
+  padding:10px 18px;
+  margin-bottom:10px;
+}
+.detail-header h2 { font-size: clamp(1.9rem, 4vw, 3rem); margin:8px 0; color:#172036; }
+.detail-header p { color:#5b6a86; font-size:1.12rem; line-height:1.6; }
+.activity-grid { display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:18px; }
+.activity-card {
+  background:#fff;
+  border:3px solid rgba(72,52,212,.12);
+  border-radius:28px;
+  padding:22px;
+  box-shadow: 0 12px 28px rgba(80, 67, 170, .08);
+}
+.activity-number {
+  width:54px;
+  height:54px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  background:#eee7ff;
+  color:#4b35d1;
+  font-weight:900;
+  font-size:1.2rem;
+  margin-bottom:12px;
+}
+.activity-card h3 { font-size:1.45rem; margin: 4px 0 10px; color:#172036; }
+.activity-card p { color:#5b6a86; line-height:1.6; font-size:1.02rem; }
+.tag-row { display:flex; flex-wrap:wrap; gap:10px; margin-top:16px; }
+.tag-row span {
+  background:#eee7ff;
+  color:#4b35d1;
+  border-radius:999px;
+  font-weight:900;
+  padding:8px 12px;
+  font-size:.92rem;
+}
+.reflection-box {
+  margin-top:20px;
+  background:#fffdf7;
+  border:3px dashed #d6cdbd;
+  border-radius:24px;
+  padding:18px;
+  color:#5d6470;
+  font-weight:700;
+  line-height:1.6;
+}
+@media (max-width: 800px) {
+  .activity-grid { grid-template-columns:1fr; }
+  .mission-detail { padding:18px; }
+}
+
+/* Style fix: make detailed workshop activities match the colorful student-made site */
+.workshop-detail-page .mission-detail{
+  border: 4px solid #222;
+  box-shadow: 8px 8px 0 rgba(32,36,42,.18);
+  background: #fffdf7;
+}
+.workshop-detail-page .mission-detail-one{ background: linear-gradient(135deg,#fff,#f4ecff); }
+.workshop-detail-page .mission-detail-two{ background: linear-gradient(135deg,#fff,#eaf8ff); }
+.workshop-detail-page .mission-detail-three{ background: linear-gradient(135deg,#fff,#fff3c7); }
+.workshop-detail-page .mission-detail-four{ background: linear-gradient(135deg,#fff,#ffeaf4); }
+.workshop-detail-page .detail-header h2,
+.workshop-detail-page .activity-card h3,
+.workshop-detail-page .mission-card h2{
+  font-family:"Comic Sans MS","Trebuchet MS",Arial,sans-serif;
+}
+.workshop-detail-page .activity-grid{
+  gap: 22px;
+}
+.workshop-detail-page .activity-card{
+  position: relative;
+  overflow: hidden;
+  border: 4px solid #222;
+  border-radius: 28px;
+  padding: 24px 24px 22px 24px;
+  min-height: 270px;
+  box-shadow: 7px 7px 0 #222;
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.workshop-detail-page .activity-card:hover{
+  transform: translate(-2px,-2px) rotate(-.3deg);
+  box-shadow: 9px 9px 0 #222;
+}
+.workshop-detail-page .activity-card:nth-child(4n+1){ background: linear-gradient(135deg,#fff,#f0e8ff); }
+.workshop-detail-page .activity-card:nth-child(4n+2){ background: linear-gradient(135deg,#fff,#dff0ff); }
+.workshop-detail-page .activity-card:nth-child(4n+3){ background: linear-gradient(135deg,#fff,#fff1b8); }
+.workshop-detail-page .activity-card:nth-child(4n+4){ background: linear-gradient(135deg,#fff,#ffe0ef); }
+.workshop-detail-page .activity-number{
+  border: 3px solid #222;
+  box-shadow: 4px 4px 0 #222;
+  background: #ffd9e8;
+  color: #20242a;
+}
+.workshop-detail-page .activity-card h3{
+  font-size: clamp(1.55rem, 2.4vw, 2.05rem);
+  line-height: 1.15;
+  padding-right: 72px;
+}
+.workshop-detail-page .activity-card p{
+  color: #4f5e78;
+  font-size: 1.08rem;
+  line-height: 1.65;
+}
+.workshop-detail-page .activity-card:after{
+  position:absolute;
+  right:22px;
+  top:22px;
+  width:58px;
+  height:58px;
+  display:grid;
+  place-items:center;
+  border:3px dashed #222;
+  border-radius:50%;
+  background:rgba(255,255,255,.72);
+  font-size:2rem;
+}
+.workshop-detail-page .mission-detail-one .activity-card:nth-child(1):after{content:"🧠";}
+.workshop-detail-page .mission-detail-one .activity-card:nth-child(2):after{content:"🦸";}
+.workshop-detail-page .mission-detail-one .activity-card:nth-child(3):after{content:"🏃";}
+.workshop-detail-page .mission-detail-one .activity-card:nth-child(4):after{content:"✏️";}
+.workshop-detail-page .mission-detail-two .activity-card:nth-child(1):after{content:"🔍";}
+.workshop-detail-page .mission-detail-two .activity-card:nth-child(2):after{content:"🧩";}
+.workshop-detail-page .mission-detail-two .activity-card:nth-child(3):after{content:"🏠";}
+.workshop-detail-page .mission-detail-two .activity-card:nth-child(4):after{content:"🕵️";}
+.workshop-detail-page .mission-detail-three .activity-card:nth-child(1):after{content:"👀";}
+.workshop-detail-page .mission-detail-three .activity-card:nth-child(2):after{content:"📱";}
+.workshop-detail-page .mission-detail-three .activity-card:nth-child(3):after{content:"😴";}
+.workshop-detail-page .mission-detail-three .activity-card:nth-child(4):after{content:"✅";}
+.workshop-detail-page .mission-detail-four .activity-card:nth-child(1):after{content:"🎵";}
+.workshop-detail-page .mission-detail-four .activity-card:nth-child(2):after{content:"🎨";}
+.workshop-detail-page .mission-detail-four .activity-card:nth-child(3):after{content:"⚡";}
+.workshop-detail-page .mission-detail-four .activity-card:nth-child(4):after{content:"🏆";}
+.workshop-detail-page .tag-row span{
+  border: 2px solid #222;
+  box-shadow: 3px 3px 0 #222;
+  background:#fff;
+  color:#4b35d1;
+}
+.workshop-detail-page .reflection-box{
+  border: 3px dashed #222;
+  box-shadow: 5px 5px 0 rgba(32,36,42,.16);
+  background: #fff7c8;
+}
+.workshop-detail-page .week-badge,
+.workshop-detail-page .mini-label,
+.workshop-detail-page .mission-pill{
+  border: 3px solid #222;
+  box-shadow: 4px 4px 0 #222;
+}
+@media(max-width:700px){
+  .workshop-detail-page .activity-card{min-height:auto;padding:20px;}
+  .workshop-detail-page .activity-card h3{padding-right:0;}
+  .workshop-detail-page .activity-card:after{position:static;margin:12px 0 0;width:48px;height:48px;font-size:1.6rem;}
+}
