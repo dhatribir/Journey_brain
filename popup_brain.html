@@ -1,14 +1,31 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Explore the Brain</title><link rel="stylesheet" href="styles/styles.css"></head><body><nav class="nav"><span class="logo">🧠 Journey</span><a  href="index.html">Start</a><a class="active" href="popup_brain.html">Explore</a><a  href="facts.html">Brain Facts</a><a  href="quiz.html">Quiz</a><a  href="workshops.html">Workshops</a><a  href="aboutPage.html">About</a></nav>
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Explore the Brain</title><link rel="stylesheet" href="styles/styles.css">
+<style>
+.brain-shape .cerebellum{
+  border:0;
+  cursor:pointer;
+  position:absolute;
+}
+.brain-shape .cerebellum .label-dot{
+  font-size:12px;
+}
+.brain-shape .cerebellum.active{
+  transform:scale(1.08);
+  z-index:5;
+  box-shadow:0 8px 20px rgba(0,0,0,.18);
+}
+</style>
+</head><body><nav class="nav"><span class="logo">🧠 Journey</span><a  href="index.html">Start</a><a class="active" href="popup_brain.html">Explore</a><a  href="facts.html">Brain Facts</a><a  href="quiz.html">Quiz</a><a  href="workshops.html">Workshops</a><a  href="aboutPage.html">About</a></nav>
 <main class="page"><h1 class="section-title">Meet your amazing brain!</h1><p class="center mini-note">Click on each colored part of the brain to see where it is and what it does.</p><div class="color-strip"></div>
 <div class="brain-container"><div class="brain-lab"><aside id="info-box" class="info-card"><h2>Click a brain part</h2><p>Start by clicking one colorful area on the brain.</p><div class="try">Try it: Guess which part helps you see before clicking.</div><p class="student-note">How I made this: I used colors to remember each lobe first, then added the science names.</p></aside>
-<section class="brain-stage"><div class="brain-shape" aria-label="Clickable brain diagram"><div class="stem"></div><div class="cerebellum"></div><button class="lobe frontal active" onclick="showLobe('frontal')"><span class="label-dot">Frontal</span></button><button class="lobe parietal" onclick="showLobe('parietal')"><span class="label-dot">Parietal</span></button><button class="lobe temporal" onclick="showLobe('temporal')"><span class="label-dot">Temporal</span></button><button class="lobe occipital" onclick="showLobe('occipital')"><span class="label-dot">Occipital</span></button></div><p class="center mini-note">Tap or click a colored lobe. The selected part pops out.</p></section></div></div>
+<section class="brain-stage"><div class="brain-shape" aria-label="Clickable brain diagram"><div class="stem"></div><button class="lobe cerebellum" onclick="showLobe('cerebellum')" aria-label="Cerebellum"><span class="label-dot">Cerebellum</span></button><button class="lobe frontal active" onclick="showLobe('frontal')"><span class="label-dot">Frontal</span></button><button class="lobe parietal" onclick="showLobe('parietal')"><span class="label-dot">Parietal</span></button><button class="lobe temporal" onclick="showLobe('temporal')"><span class="label-dot">Temporal</span></button><button class="lobe occipital" onclick="showLobe('occipital')"><span class="label-dot">Occipital</span></button></div><p class="center mini-note">Tap or click a colored lobe. The selected part pops out.</p></section></div></div>
 <div class="activity"><h2>Mini challenge</h2><p>Point to your forehead and say: “This is where my decision-making helper is.” Then click the front pink area.</p></div><div class="cta-row"><a class="button" href="facts.html">Next: Brain facts →</a></div></main><footer class="footer">Keep going — facts are next.</footer>
 <script>
 const lobes={
 frontal:{name:'Frontal Lobe',emoji:'🩷',color:'pink',where:'Front of the brain, behind your forehead.',does:['Planning and decisions','Speaking and personality','Body movement'],memory:'Frontal = front office. It is like the brain’s team captain.',tryit:'Think about what you want for lunch. Your frontal lobe is helping you choose!'},
 parietal:{name:'Parietal Lobe',emoji:'💛',where:'Top-middle part of the brain.',does:['Touch and temperature','Body position','Knowing where things are around you'],memory:'Parietal = position. It helps you know where your body is.',tryit:'Close your eyes and touch your nose. Your parietal lobe helps with body position.'},
 temporal:{name:'Temporal Lobe',emoji:'💚',where:'Side area near your ears.',does:['Hearing','Memory','Understanding words and sounds'],memory:'Temporal is near your temples and ears, so I connect it with sounds.',tryit:'Listen to a clap or song. Your temporal lobe helps make sense of it.'},
-occipital:{name:'Occipital Lobe',emoji:'💙',where:'Back of the brain.',does:['Vision','Colors and shapes','Making sense of what your eyes see'],memory:'Occipital = optical. I remember it as the seeing helper.',tryit:'Look at something colorful. Your eyes send information, and this part helps understand it.'}
+occipital:{name:'Occipital Lobe',emoji:'💙',where:'Back of the brain.',does:['Vision','Colors and shapes','Making sense of what your eyes see'],memory:'Occipital = optical. I remember it as the seeing helper.',tryit:'Look at something colorful. Your eyes send information, and this part helps understand it.'},
+cerebellum:{name:'Cerebellum',emoji:'🎯',where:'Back and lower part of the brain, under the cerebrum.',does:['Balance','Smooth movement','Coordination when you walk, run, dance, write, or catch a ball'],memory:'Cerebellum = balance coach. It helps your body move without falling.',tryit:'Stand on one foot for 10 seconds. Your cerebellum is helping you balance!'}
 };
 function showLobe(key){
  document.querySelectorAll('.lobe').forEach(x=>x.classList.remove('active'));
