@@ -1,30 +1,110 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>About</title><link rel="stylesheet" href="styles/styles.css"></head><body><nav class="nav"><span class="logo">🧠 Journey</span><a  href="index.html">Start</a><a  href="popup_brain.html">Explore</a><a  href="facts.html">Brain Facts</a><a  href="quiz.html">Quiz</a><a  href="workshops.html">Workshops</a><a class="active" href="aboutPage.html">About</a></nav>
-<main class="page"><div class="aboutcontainer"><h1 class="section-title">About this project</h1><div class="color-strip"></div><div class="team-member card"><h2>Dhatri Biruduraju</h2><p><strong>Student creator / beginner web developer</strong></p><p>I am a student who loves reading, writing, neuroscience, and learning how the brain works. I recently learned HTML and wanted to build something that younger kids could actually use, not just read.</p></div><div class="kid-box">
-      <h2>How This Started</h2>
-      <p>
-        My interest in combining neuroscience and technology began through the
-        <a href="https://www.getmagic.org/" target="_blank" rel="noopener">MAGIC mentoring program</a>,
-        where I worked with my mentor, Somya Panchal. As part of the program, I created my first
-        website about the brain using HTML, CSS, and JavaScript. What began as a project to explore
-        something I was interested in eventually became something I wanted to share with others.
-      </p>
-      <p>
-        Later, I participated in a Brain Bee competition. While preparing for it, I became even more
-        fascinated by the brain. Some topics were difficult at first, but understanding them made me
-        more curious.
-      </p>
-      <p><strong>That made me wonder: How could I make neuroscience simpler and more fun for younger students?</strong></p>
-      <p>
-        I decided to take my original project further. I expanded the website, created interactive
-        activities, and began leading workshops where younger students could learn about topics such
-        as memory, focus, sleep, and movement.
-      </p>
-      <p>That evolution became <strong>Journey Through The Brain</strong>.</p>
-      <p style="margin-top:18px;">
-        <a href="https://d3i000000eahxea4.my.salesforce-sites.com/ProjectTemplate?currentID=a15TN000013lX9ZYAU"
-           target="_blank" rel="noopener"
-           style="display:inline-block;padding:11px 16px;border:3px solid #25272d;border-radius:14px;background:#fff;font-weight:800;color:#172036;text-decoration:none;box-shadow:3px 4px 0 #25272d;">
-          View my original 2024 MAGIC project →
-        </a>
-      </p>
-</div><div class="kid-box"><h2>Why I made this</h2><p>I wanted a website that feels friendly, colorful, and honest. My goal is not to look perfect. My goal is to make neuroscience feel interesting and less scary.</p></div><div class="activity"><h2>My note</h2><p>This website is like a science notebook that became a website. I want to keep improving it as I learn more.</p></div></div></main><footer class="footer">Thanks for visiting my brain journey.</footer></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About</title>
+  <link rel="stylesheet" href="styles/styles.css">
+  <style>
+    .about-modern{max-width:1180px;margin:0 auto;}
+    .about-story-wrap{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(300px,.8fr);gap:26px;align-items:stretch;background:linear-gradient(135deg,#f7fbff,#eef7ff);border-radius:30px;padding:34px;margin-top:22px;}
+    .about-story h1{margin:0 0 8px;font-size:2.4rem;}
+    .about-story h2{margin:0 0 12px;color:#4b35d1;font-size:1.5rem;}
+    .about-story p{color:#33445f;line-height:1.65;margin:0 0 14px;font-size:1.04rem;}
+    .about-story strong{color:#172036;}
+    .gratitude-card{background:linear-gradient(145deg,#f0e9ff,#eadfff);border-radius:24px;padding:24px;display:flex;flex-direction:column;justify-content:center;}
+    .gratitude-card h3{margin:0 0 12px;color:#5a3fd3;font-size:1.45rem;}
+    .gratitude-card p{margin:0 0 14px;color:#33445f;line-height:1.6;}
+    .magic-link{display:inline-block;margin-top:6px;padding:12px 16px;border-radius:14px;background:#cfb7ff;color:#302263;font-weight:900;text-decoration:none;}
+    .about-section{margin-top:34px;}
+    .about-section h2{margin:0 0 16px;font-size:2rem;color:#172036;}
+    .photo-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+    .photo-row img{width:100%;height:220px;object-fit:cover;border-radius:18px;border:3px solid #25272d;box-shadow:4px 5px 0 #25272d;display:block;}
+    .testimonial-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;}
+    .testimonial-card{border-radius:20px;padding:20px;min-height:220px;}
+    .testimonial-card:nth-child(1){background:#edf6ff;}
+    .testimonial-card:nth-child(2){background:#fff0f6;}
+    .testimonial-card:nth-child(3){background:#eefbf4;}
+    .testimonial-card:nth-child(4){background:#f4f0ff;}
+    .testimonial-card p{margin:0;color:#33445f;line-height:1.55;font-size:.98rem;}
+    .testimonial-card .q{font-size:2.2rem;line-height:.7;font-weight:900;color:#6a57da;display:block;margin-bottom:10px;}
+    .testimonial-card .who{display:block;margin-top:14px;font-weight:900;color:#172036;}
+    @media(max-width:950px){
+      .about-story-wrap{grid-template-columns:1fr;}
+      .testimonial-grid{grid-template-columns:repeat(2,1fr);}
+    }
+    @media(max-width:650px){
+      .about-story-wrap{padding:22px;}
+      .photo-row,.testimonial-grid{grid-template-columns:1fr;}
+      .photo-row img{height:auto;}
+      .about-story h1{font-size:2rem;}
+    }
+  </style>
+</head>
+<body>
+<nav class="nav">
+  <span class="logo">🧠 Journey</span>
+  <a href="index.html">Start</a>
+  <a href="popup_brain.html">Explore</a>
+  <a href="facts.html">Brain Facts</a>
+  <a href="quiz.html">Quiz</a>
+  <a href="workshops.html">Workshops</a>
+  <a class="active" href="aboutPage.html">About</a>
+</nav>
+
+<main class="page about-modern">
+  <section class="about-story-wrap">
+    <div class="about-story">
+      <h1>About</h1>
+      <h2>A Student-Led Journey into the Brain</h2>
+      <p>I’m Dhatri, a high school student who is passionate about the brain and how it works. I created Journey Brain to share what I’ve learned through fun, interactive workshops for younger students. My goal is to make neuroscience exciting and easy to understand.</p>
+      <p>This journey began with my 2024 MAGIC project, where I had the opportunity to be mentored by Somya Panchal. Her guidance helped spark my interest in neuroscience and inspired me to start teaching younger students.</p>
+      <p>Later, my experience with the Brain Bee deepened my curiosity and love for the brain. That inspired me to design these workshops and create this website as a place for kids to explore, learn, and have fun with neuroscience. <strong>This website is like a science notebook that became a website. I want to keep improving it as I learn more.</strong></p>
+    </div>
+
+    <aside class="gratitude-card">
+      <h3>✨ With Gratitude</h3>
+      <p>A special thank you to my mentor <strong>Somya Panchal</strong> from <a href="https://www.getmagic.org/" target="_blank" rel="noopener">getmagic.org</a> for her guidance and support during my 2024 MAGIC project. This experience inspired the beginning of Journey Brain.</p>
+      <a class="magic-link" href="https://d3i000000eahxea4.my.salesforce-sites.com/ProjectTemplate?currentID=a15TN000013lX9ZYAU" target="_blank" rel="noopener">↗ View my original 2024 MAGIC project →</a>
+    </aside>
+  </section>
+
+  <section class="about-section">
+    <h2>📷 Workshop in Action</h2>
+    <div class="photo-row">
+      <img src="images/workshops/workshop-teaching-1.jpg" alt="Student-led neuroscience workshop presentation">
+      <img src="images/workshops/workshop-activity-1.jpg" alt="Students participating in a hands-on brain activity">
+      <img src="images/workshops/workshop-celebration.jpg" alt="Workshop group activity and celebration">
+    </div>
+  </section>
+
+  <section class="about-section">
+    <h2>💬 What Families Say</h2>
+    <div class="testimonial-grid">
+      <article class="testimonial-card">
+        <span class="q">“</span>
+        <p>Dhatri had done a wonderful job teaching our kids about neuroscience in a fun and engaging way. Kids were completely engaged and eager to learn more about the brain and how it functions. The website is also very well designed and simple for the kids to follow through.</p>
+        <span class="who">— Parent of Ananya</span>
+      </article>
+      <article class="testimonial-card">
+        <span class="q">“</span>
+        <p>My son thoroughly enjoyed all the neuroscience sessions by Dhatri and learned so many interesting facts about brain functioning. He looked forward to the sessions every week and loved the website she designed.</p>
+        <span class="who">— Parent of Nishanth</span>
+      </article>
+      <article class="testimonial-card">
+        <span class="q">“</span>
+        <p>My child really enjoyed the workshops. The activities were fun, interactive, and made learning about the brain easy to understand.</p>
+        <span class="who">Parent of Prabhav</span>
+      </article>
+      <article class="testimonial-card">
+        <span class="q">“</span>
+        <p>Hi Dhatri akka! I’ve really enjoyed the website; it’s been a great help in memorizing and learning about the brain in a fun and interesting way! Thank you so much for creating it ⭐️🫶</p>
+        <span class="who">— Student Kiranteji</span>
+      </article>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">Thanks for visiting my brain journey.</footer>
+</body>
+</html>
